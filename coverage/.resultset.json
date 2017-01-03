@@ -1,0 +1,20 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/ebarth26/projects/Tuesdates/tuesdates/app/controllers/home_controller.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/Users/ebarth26/projects/Tuesdates/tuesdates/app/controllers/application_controller.rb": [
+        1,
+        1,
+        null
+      ]
+    },
+    "timestamp": 1483475939
+  }
+}

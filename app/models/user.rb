@@ -7,5 +7,6 @@ class User < ApplicationRecord
     user.image_url = auth_hash['info']['image']
     user.email = auth_hash['info']['email']
     user.save!
+    user
   end
 end

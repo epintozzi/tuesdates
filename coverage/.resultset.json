@@ -1,6 +1,25 @@
 {
   "RSpec": {
     "coverage": {
+      "/Users/ebarth26/projects/Tuesdates/tuesdates/app/models/user.rb": [
+        1,
+        null,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null
+      ],
+      "/Users/ebarth26/projects/Tuesdates/tuesdates/app/models/application_record.rb": [
+        1,
+        1,
+        null
+      ],
       "/Users/ebarth26/projects/Tuesdates/tuesdates/app/controllers/home_controller.rb": [
         1,
         null,
@@ -12,9 +31,17 @@
       "/Users/ebarth26/projects/Tuesdates/tuesdates/app/controllers/application_controller.rb": [
         1,
         1,
+        null,
+        1,
+        null,
+        1,
+        null,
+        1,
+        0,
+        null,
         null
       ]
     },
-    "timestamp": 1483475939
+    "timestamp": 1483481277
   }
 }

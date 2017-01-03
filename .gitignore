@@ -16,7 +16,7 @@
 # Ignore Byebug command history file.
 .byebug_history
 
-# Ignore simplecov files
+#simplecov reports
 /coverage/*
 
 # Ignore application configuration

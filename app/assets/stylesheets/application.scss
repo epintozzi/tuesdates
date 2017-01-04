@@ -13,3 +13,46 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+ body.bg {
+   background-image: url("https://images.unsplash.com/photo-1466978913421-dad2ebd01d17");
+   background: cover no-repeat;
+   background-size: 100% auto;
+  //  opacity: .4;
+ }
+
+ body .floater {
+   position: absolute;
+   height: 100%;
+   width: 100%;
+   background-color: #ffffff;
+   opacity: .6;
+   z-index: -1;
+ }
+
+.navbar.home {
+  background-color: #D62C80;
+}
+.navbar.main {
+  background-color: #F7F7F7;
+}
+
+.navbar-default {
+  border-width: 0px 0px 1px 0px;
+  border-radius: 0px;
+  // border-color: #E8E4E0;
+}
+
+.navbar-default .navbar-brand.home{
+  color: #F7F7F7;
+}
+.navbar-default .navbar-brand.main{
+  color: #D62C80;
+}
+
+.navbar-default .navbar-nav li a {
+  color: #F7F7F7;
+}
+.navbar-default .navbar-nav li a {
+  color: #F7F7F7;
+}

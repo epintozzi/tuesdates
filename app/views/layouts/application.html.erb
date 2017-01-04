@@ -9,12 +9,15 @@
   </head>
 
   <body>
-    <%= render partial: 'layouts/navbar' %>
-    <% flash.each do |type, message| %>
-      <div class="alert alert-<%= type %>">
-       <strong><%= message %></strong>
-      </div>
-    <% end %>
-    <%= yield %>
+    <div class="floater"></div>
+    <%= render partial: 'layouts/navbar_main' %>
+    <div class="homepage-overlay">
+      <% flash.each do |type, message| %>
+        <div class="alert alert-<%= type %>">
+         <strong><%= message %></strong>
+        </div>
+      <% end %>
+      <%= yield %>
+    <div>
   </body>
 </html>

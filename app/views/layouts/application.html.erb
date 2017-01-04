@@ -9,6 +9,12 @@
   </head>
 
   <body>
+    <%= render partial: 'layouts/navbar' %>
+    <% flash.each do |type, message| %>
+      <div class="alert alert-<%= type %>">
+       <strong><%= message %></strong>
+      </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>

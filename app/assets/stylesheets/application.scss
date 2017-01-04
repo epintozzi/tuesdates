@@ -18,7 +18,6 @@
    background-image: url("https://images.unsplash.com/photo-1466978913421-dad2ebd01d17");
    background: cover no-repeat;
    background-size: 100% auto;
-  //  opacity: .4;
  }
 
  body .floater {
@@ -34,25 +33,45 @@
   background-color: #D62C80;
 }
 .navbar.main {
-  background-color: #F7F7F7;
+  background-color: #FFFFFF;
 }
 
-.navbar-default {
+.navbar-default.home {
   border-width: 0px 0px 1px 0px;
   border-radius: 0px;
-  // border-color: #E8E4E0;
+  border-color: #C82575;
+}
+
+.navbar-default.main {
+  border-width: 0px 0px 1px 0px;
+  border-radius: 0px;
 }
 
 .navbar-default .navbar-brand.home{
   color: #F7F7F7;
+  font-family: 'Amatic SC', cursive;
+  font-size: 34px;
 }
 .navbar-default .navbar-brand.main{
   color: #D62C80;
+  font-family: 'Amatic SC', cursive;
+  font-size: 34px;
 }
 
-.navbar-default .navbar-nav li a {
+.navbar-default .navbar-nav.home li a {
   color: #F7F7F7;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
 }
-.navbar-default .navbar-nav li a {
-  color: #F7F7F7;
+
+.navbar-nav.home ul.dropdown-menu li a {
+  color: #D62C80;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+}
+
+.navbar-default .navbar-nav.main li a {
+  color: #D62C80;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
 }

@@ -1,0 +1,7 @@
+ <!-- Can I do some logic to check current path to keep this altogether? -->
+
+<% if current_user && %>
+  <%= link_to 'Tuesdates', dashboard_path, class: "navbar-brand home" %>
+<% else %>
+  <a class="navbar-brand home" href="/">Tuesdates</a>
+<% end %>

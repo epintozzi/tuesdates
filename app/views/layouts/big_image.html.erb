@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tuesdates</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700|Lato:300,300i,400" rel="stylesheet">
+
+  </head>
+
+  <body class="bg">
+    <div class="floater"></div>
+    <%= render partial: 'layouts/navbar_home' %>
+    <div class="homepage-overlay">
+      <% flash.each do |type, message| %>
+        <div class="alert alert-<%= type %>">
+         <strong><%= message %></strong>
+        </div>
+      <% end %>
+      <%= yield %>
+    <div>
+  </body>
+</html>

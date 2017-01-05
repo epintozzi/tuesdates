@@ -4,7 +4,7 @@
   <div>
     <h4> Group Members </h4>
       <% @group.users.each do |member| %>
-        <%= member.first_name %> <%= member.last_name %>
+        <li><%= member.first_name %> <%= member.last_name %></li>
       <% end %>
   </div>
   <%= link_to "Invite others to this group", groups_path %>

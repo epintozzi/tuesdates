@@ -141,6 +141,18 @@ a:hover {
   border-radius: 48px;
 }
 
+.btn-success:hover{
+  background-color: white;
+  border: 2px solid #D62C80;
+  color: #D62C80;
+}
+
+.btn-success:active, .btn-success:focus, .btn-success:active:hover, .btn-success:active:focus, .btn-success:active:hover{
+  background-color: #C82575;
+  color: #ffffff;
+  border-style: none;
+}
+
 .dash-left{
   background-image: url("https://images.unsplash.com/uploads/1412198485051133af17f/5049dacb");
   margin-top: -20px;

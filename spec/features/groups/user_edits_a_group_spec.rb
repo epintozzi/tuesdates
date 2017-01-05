@@ -13,18 +13,23 @@ describe "user edits a group" do
 
     click_on "Edit group"
     fill_in "group[name]", with: "new group name"
-    click_on "Update group"
+    click_on "Update Group"
 
     expect(current_path).to eq(group_path(group))
     expect(page).to have_content("new group name")
     expect(page).to have_content("Your group has been updated")
-    expect(page).t_not have_content("old name")
+    expect(page).to_not have_content("old name")
   end
+
   xscenario "a user cannot edit a group they do not belong to" do
     user = create(:user)
     group_1, group_2 = create_list(:group, 2)
     group_1.users = [user]
     group_1.save
+
+  end
+
+  xscenario "user sees error message if group didn't update" do
 
   end
 end

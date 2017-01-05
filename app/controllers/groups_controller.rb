@@ -29,7 +29,20 @@ class GroupsController < ApplicationController
     end
   end
 
+  def edit
+    @group = Group.find(params[:id])
+  end
+
   def update
+    @group = Group.find(params[:id])
+    @group.update(group_params)
+    if @group.save
+      flash[:success] = "Your group has been updated"
+      redirect_to group_path(@group)
+    else
+      flash[:warning] =  "Your changes were not saved"
+      render :edit
+    end
 
   end
 

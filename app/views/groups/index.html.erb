@@ -1,5 +1,10 @@
 <div class="container">
-  Groups Index
+  <h2>My Groups</h2>
+  <div>
+    <% @groups.each do |group| %>
+      <li><%= group.name %></li>
+    <% end %>
+  </div>
   <%= link_to new_group_path do %>
     <button type="button" class="btn btn-success">Create new group</button>
   <% end %>

@@ -1,20 +1,33 @@
 
-
-<div class="form-group search-form">
-  <%= form_tag :search, method: :get, class: "form-inline" do %>
-    <%= text_field_tag :term, nil, placeholder: "search by restaurant or cuisine", class: "form-control"%>
-    <%= text_field_tag :location, nil, placeholder: "city or zipcode", class: "form-control"%>
-    <%= submit_tag "Search", class: "btn btn-success" %>
-  <% end %>
+<div class="search-header">
+  <div class="form-group search-form">
+    <h3 id="search-text">Enter search terms to see your results</h3>
+    <%= form_tag :search, method: :get, class: "form-inline" do %>
+      <%= text_field_tag :term, nil, placeholder: "search by restaurant or cuisine", class: "form-control"%>
+      <%= text_field_tag :location, nil, placeholder: "city or zipcode", class: "form-control"%>
+      <%= submit_tag "Search", class: "btn btn-success" %>
+    <% end %>
+  </div>
 </div>
 
+<div class="container search-label">
+  <h5>Search Results</h5>
+</div>
 <div class="container search-results">
   <% @restaurants.each do |restaurant| %>
-    <ul>
-      <li><%= restaurant.name %> <%= restaurant.rating%></li>
-      <li><%= restaurant.location.display_address[0] %></li>
-      <li><%= restaurant.location.display_address[2] %></li>
-    </ul>
+    <div class="row">
+      <div class="col-md-4">
+        <ul>
+          <li><%= restaurant.name %> <%= restaurant.rating%></li>
+          <li><%= restaurant.location.display_address[0] %></li>
+          <li><%= restaurant.location.display_address[2] %></li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+      </div>
+      <div class="col-md-4">
+      </div>
+    </div>
   <% end %>
 
 </div>

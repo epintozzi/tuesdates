@@ -1,9 +1,13 @@
 class SearchController < ApplicationController
 
   def index
-    cuisine = params[:search]
-    location = params[:zip]
-    @restaurants = YelpService.search_response(term, location)
+    location = params[:location]
+    term = {term: params[:term]}
+    if params[:term].nil?
+      @restaurants = []
+    else
+      @restaurants = YelpService.search_response(location, term)
+    end
   end
 
 end

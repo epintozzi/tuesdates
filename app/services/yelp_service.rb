@@ -1,7 +1,7 @@
 class YelpService
 
-  def search_response(term, location)
-    response = client.search(term, location)
+  def self.search_response(location, term)
+    response = Yelp.client.search(location, term)
     response.businesses
   end
 

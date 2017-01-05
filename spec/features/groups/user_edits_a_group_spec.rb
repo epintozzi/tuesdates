@@ -21,6 +21,23 @@ describe "user edits a group" do
     expect(page).to_not have_content("old name")
   end
 
+  scenario "user sees error message if group didn't update" do
+    user = create(:user)
+    group = create(:group, name: "old name")
+    group.users = [user]
+    group.save
+
+    visit group_path(group)
+
+    expect(page).to have_content("old name")
+
+    click_on "Edit group"
+    fill_in "group[name]", with: ""
+    click_on "Update Group"
+
+    expect(page).to have_content("Your changes were not saved")
+  end
+
   xscenario "a user cannot edit a group they do not belong to" do
     user = create(:user)
     group_1, group_2 = create_list(:group, 2)
@@ -29,7 +46,4 @@ describe "user edits a group" do
 
   end
 
-  xscenario "user sees error message if group didn't update" do
-
-  end
 end

@@ -1,11 +1,11 @@
 require "rails_helper"
 
 describe "User can search for restaurants" do
-  scnenario "user can search for restaurants" do
+  scenario "user can search for restaurants", :vcr do
     visit search_path
 
-    fill_in #search params of my choosing
-    fill_in #location
+    fill_in :search, with: "tacos"
+    fill_in :zip, with: "80216"
 
     click_on "Search"
 

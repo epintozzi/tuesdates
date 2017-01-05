@@ -20,4 +20,12 @@ describe "user sees only their groups" do
     expect(page).to have_content(group_1.name)
     expect(page).to_not have_content(group_2.name)
   end
+
+  scenario "logged out/unregistered user can't see groups" do
+    visit groups_path
+
+    expect(page).to have_content("You must log in to see your groups")
+    expect(page).to_not have_content("My Groups")
+    expect(current_path).to eq(root_path)
+  end
 end

@@ -1,8 +1,12 @@
 class GroupsController < ApplicationController
 
   def index
-    user = User.find(current_user.id)
-    @groups = user.groups
+    if !current_user
+      flash[:warning] = "You must log in to see your groups"
+      redirect_to root_path
+    else
+      @groups = current_user.groups
+    end
   end
 
   def show

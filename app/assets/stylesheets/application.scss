@@ -38,10 +38,13 @@ h1, h2, h3, h5, h6 {
   font-family: 'Lato', sans-serif;
 }
 
-
 h4 {
   color: #A29A9E;
   font-family: 'Lato', sans-serif;
+}
+
+h5 {
+  font-size: 16px;
 }
 
 p, li {
@@ -161,12 +164,9 @@ a:hover {
   background-size: cover;
 }
 .dash-right{
-  // background-color: #D62C80;
   background-color: #F7F2F6;
   margin-top: -20px;
   height: 25em;
-  // opacity: .11;
-  // z-index: -2;
 }
 
 .inspiration {
@@ -176,4 +176,27 @@ a:hover {
 
 #inspire{
   color: #F7F7F7;
+}
+
+.search-header {
+  margin-top: -20px;
+  background-image: url("https://images.unsplash.com/photo-1424847651672-bf20a4b0982b");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 25em;
+}
+
+#search-text{
+  color: #F7F7F7;
+}
+
+.search-form{
+  text-align: center;
+  padding-top: 10%;
+}
+
+.search-results, .search-label {
+  padding-top: 20px;
+  padding-left: 30px;
+  margin-left: 15%;
 }

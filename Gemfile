@@ -16,6 +16,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'omniauth-google-oauth2'
 gem 'figaro'
 gem 'bootstrap-sass', '~> 3.3.6'
+gem 'yelp', require: 'yelp'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
@@ -34,6 +35,11 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'launchy'
   gem 'database_cleaner'
+end
+
+group :test do
+  gem 'vcr'
+  gem 'webmock'
 end
 
 group :development do

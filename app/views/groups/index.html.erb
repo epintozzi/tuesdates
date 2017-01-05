@@ -1,11 +1,19 @@
 <div class="container">
-  <h2>My Groups</h2>
-  <div>
-    <% @groups.each do |group| %>
-        <li><%= link_to group.name, group_path(group) %></li>
+  <div class="col-md-4">
+  </div>
+  <div class="col-md-4 group-info">
+    <h2>My Groups</h2>
+    <div>
+      <div class="my-groups">
+        <% @groups.each do |group| %>
+            <li><%= link_to group.name, group_path(group) %></li>
+        <% end %>
+      </div>
+    </div>
+    <%= link_to new_group_path do %>
+      <button type="button" class="btn btn-success">Create new group</button>
     <% end %>
   </div>
-  <%= link_to new_group_path do %>
-    <button type="button" class="btn btn-success">Create new group</button>
-  <% end %>
+  <div class="col-md-4">
+  </div>
 </div>

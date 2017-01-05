@@ -1,12 +1,17 @@
 <div class="container">
 
-  <h2> <%= @group.name %> </h2>
-  <div>
-    <h4> Group Members </h4>
-      <% @group.users.each do |member| %>
-        <li><%= member.first_name %> <%= member.last_name %></li>
-      <% end %>
+  <div class="col-md-4">
   </div>
+  <div class="col-md-4 group-info">
+    <h2> <%= @group.name %> </h2>
+    <div class="group-members">
+      <h4> Group Members </h4>
+        <% @group.users.each do |member| %>
+          <li><%= member.first_name %> <%= member.last_name %></li>
+        <% end %>
+    </div>
   <%= link_to "Invite others to this group", groups_path %>
-
+  </div>
+  <div class="col-md-4">
+  </div>
 </div>

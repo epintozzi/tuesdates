@@ -33,8 +33,14 @@ li, ul {
   list-style: none;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h5, h6 {
   color: #4A4A4A;
+  font-family: 'Lato', sans-serif;
+}
+
+
+h4 {
+  color: #A29A9E;
   font-family: 'Lato', sans-serif;
 }
 
@@ -42,6 +48,7 @@ p, li {
   font-family: 'Lato', sans-serif;
   color: #4A4A4A;
   font-weight: 300;
+  font-size: 16px;
 }
 
 a {
@@ -114,4 +121,47 @@ a:hover {
   color: #D62C80;
   font-family: 'Lato', sans-serif;
   font-weight: 300;
+}
+
+.group-info{
+  text-align: center;
+}
+
+.group-members, .my-groups{
+  text-align: left;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  margin-left: 28%;
+}
+
+.btn-success{
+  background-color: #D62C80;
+  border-style: none;
+  box-shadow: 0 1px 2px 0 #BFB7AE;
+  border-radius: 48px;
+}
+
+.dash-left{
+  background-image: url("https://images.unsplash.com/uploads/1412198485051133af17f/5049dacb");
+  margin-top: -20px;
+  height: 25em;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.dash-right{
+  // background-color: #D62C80;
+  background-color: #F7F2F6;
+  margin-top: -20px;
+  height: 25em;
+  // opacity: .11;
+  // z-index: -2;
+}
+
+.inspiration {
+  text-align: center;
+  padding-top: 20%;
+}
+
+#inspire{
+  color: #F7F7F7;
 }

@@ -1,3 +1,17 @@
-<div class="container">
-  Dashboard
+<div class="col-md-6 dash-left">
+  <div class="inspiration">
+    <h3 id="inspire">Need Inspiration?</h3>
+    <%= link_to dashboard_path do %>
+    <button type="button" class="btn btn-success">Browse Restaurants</button>
+    <% end %>
+  </div>
+</div>
+
+<div class="col-md-6 dash-right">
+  <div class="inspiration">
+    <h4>You don't belong to any groups yet</h4>
+    <%= link_to dashboard_path do %>
+    <button type="button" class="btn btn-success">Create new group</button>
+    <% end %>
+  </div>
 </div>

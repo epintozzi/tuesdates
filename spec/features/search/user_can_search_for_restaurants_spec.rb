@@ -9,10 +9,7 @@ describe "User can search for restaurants" do
 
     click_on "Search"
 
-    expect(page).to have_content("Restaurant name")
-    expect(page).to have_content("Address line")
-    expect(page).to have_content("cuisine type")
-    expect(page).to have_content("dollar signs")
-    expect(page).to have_content("on Yelp") #star ratings
+    expect(page).to have_content("La Potranca Taqueria")
+    expect(page).to have_content("2336 E 46th Ave")
   end
 end

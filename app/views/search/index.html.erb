@@ -10,7 +10,11 @@
 
 <div class="container search-results">
   <% @restaurants.each do |restaurant| %>
-    <%= restaurant.name %>
+    <ul>
+      <li><%= restaurant.name %> <%= restaurant.rating%></li>
+      <li><%= restaurant.location.display_address[0] %></li>
+      <li><%= restaurant.location.display_address[2] %></li>
+    </ul>
   <% end %>
 
 </div>

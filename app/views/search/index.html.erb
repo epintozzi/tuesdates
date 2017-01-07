@@ -15,17 +15,30 @@
 </div>
 <div class="container search-results">
   <% @restaurants.each do |restaurant| %>
-    <div class="row">
-      <div class="col-md-4">
+    <div class="row restaurant-info">
+      <div class="col-md-3">
         <ul>
-          <li><%= restaurant.name %> <%= restaurant.rating%></li>
-          <li><%= restaurant.location.display_address[0] %></li>
-          <li><%= restaurant.location.display_address[2] %></li>
+          <li class="rest-name"><%= link_to restaurant.name, dashboard_path %></li>
+          <li><%= restaurant.location.address[0]%></li>
+          <li><%= restaurant.location.city%>, <%= restaurant.location.state_code%> <%= restaurant.location.postal_code %></li>
         </ul>
       </div>
       <div class="col-md-4">
+        <ul>
+          <li><%= restaurant.rating%> on Yelp</li>
+          <li> 3 other Tuesdaters have eaten here</li>
+          <li><%= link_to "See Reviews", dashboard_path %></li>
+        </ul>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-2">
+        <%= link_to dashboard_path do %>
+          <button type="button" class="btn btn-success">
+            +
+          </button>
+          Plan your date
+        <% end %>
+      </div>
+      <div class="col-md-3-offset">
       </div>
     </div>
   <% end %>

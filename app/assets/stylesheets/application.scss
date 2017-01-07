@@ -33,7 +33,7 @@ li, ul {
   list-style: none;
 }
 
-h1, h2, h3, h5, h6 {
+h1, h2, h3,h6 {
   color: #4A4A4A;
   font-family: 'Lato', sans-serif;
 }
@@ -44,14 +44,15 @@ h4 {
 }
 
 h5 {
-  font-size: 16px;
+  font-size: 18px;
+  color: #5C6065;
 }
 
 p, li {
   font-family: 'Lato', sans-serif;
   color: #4A4A4A;
   font-weight: 300;
-  font-size: 16px;
+  font-size: 15px;
 }
 
 a {
@@ -211,7 +212,19 @@ a:hover {
 }
 
 .search-results, .search-label {
-  padding-top: 20px;
+  padding-top: 40px;
   padding-left: 30px;
   margin-left: 15%;
+}
+
+.rest-name {
+  font-weight: 400;
+}
+
+.restaurant-info {
+  padding-bottom: 20px;
+}
+
+.restaurant-info li{
+  color: #9B9B9B;
 }

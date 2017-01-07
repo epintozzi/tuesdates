@@ -1,0 +1,11 @@
+<h2>Plan your date</h2>
+
+<%= form_for @event do |f| %>
+  <%= f.date_select :event_start %>
+
+  <%= f.time_select :event_start, {ampm: true, minute_step: 15} %>
+
+  <%= f.collection_select(:group_id, current_user.groups, :id, :name, {prompt: "Choose a group to invite"}) %>
+
+  <%= f.submit "Send Invitation", class: 'btn-success' %>
+<% end %>

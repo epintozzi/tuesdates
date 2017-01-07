@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'home#index'
 
   resources :groups
+  resources :events, except: [:delete]
 
   get '/dashboard', to: 'dashboard#index'
 

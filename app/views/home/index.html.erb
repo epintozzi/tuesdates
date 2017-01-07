@@ -1,5 +1,22 @@
 <div class="container">
-  <div>
-
+  <div class="tues-description">
+    <p>Plan dinners with your friends with less hassle</p>
+    <p>Send Reminders and RSVPs</p>
+    <p>Track all your favorite places so you can go again</p>
+    <div class="login-button">
+      <% if current_user %>
+        <%= link_to dashboard_path do %>
+          <button type="button" class="btn btn-success">
+            Go to my dashboard
+          </button>
+        <% end %>
+      <% else %>
+        <%= link_to '/auth/google' do %>
+          <button type="button" class="btn btn-success">
+            Log in with Google
+          </button>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 </div>

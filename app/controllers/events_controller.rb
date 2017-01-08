@@ -9,16 +9,15 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
-    @restaurant = Restaurant.find_or_create_by(name: params[:restaurant_name], yelp_id: params[:yelp_id])
+    @restaurant = Restaurant.find_or_create_by(name: params[:restaurant_name], yelp_id: params[:yelp_id], street: params[:street], city: params[:city], state: params[:state], zip: params[:zip])
     @event.restaurant = @restaurant
-    @address = params[:address]
   end
 
   def create
     @event = Event.create(event_params)
-    @event.restaurant = Restaurant.first_or_create(restaurant_params)
+    @event.restaurant = Restaurant.find_or_create_by(restaurant_params)
     @event.user = current_user
-    @address = YelpService.business_search(@event.restaurant.yelp_id).business.location.display_address
+    @restaurant = @event.restaurant
     if @event.save
       flash[:success] = "Your invitation has been sent!"
       redirect_to event_path(@event)
@@ -41,7 +40,7 @@ class EventsController < ApplicationController
   end
 
   def restaurant_params
-    params.require(:restaurant).permit(:name, :yelp_id)
+    params.require(:restaurant).permit(:name, :yelp_id, :street, :city, :state, :zip)
   end
 
 end

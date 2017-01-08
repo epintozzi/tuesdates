@@ -6,5 +6,9 @@ FactoryGirl.define do
     sequence :name do |n|
       "Restaurant #{}"
     end
+    street "123 main"
+    city "Denver"
+    state "CO"
+    zip "80216"
   end
 end

@@ -7,9 +7,8 @@
     <%= r.text_field :name, value: @restaurant.name, readonly: true%>
   <% end %>
   <br>
-  <%= @address[0] %><br>
-  <%= @address[1] %><br>
-  <%= @address[2] %><br>
+  <%= @restaurant.street%><br>
+  <%= @restaurant.city%>, <%= @restaurant.state%> <%= @restaurant.zip%><br>
 
   <%= f.date_select :event_start %>
 

@@ -1,6 +1,16 @@
 <h2>Plan your date</h2>
 
+
 <%= form_for @event do |f| %>
+  <%= fields_for :restaurant, @event.restaurant do |r| %>
+    <%= r.hidden_field :yelp_id %>
+    <%= r.text_field :name, readonly: true %>
+  <% end %>
+  <br>
+  <%= @address[0] %><br>
+  <%= @address[1] %><br>
+  <%= @address[2] %><br>
+
   <%= f.date_select :event_start %>
 
   <%= f.time_select :event_start, {ampm: true, minute_step: 15} %>

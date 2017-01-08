@@ -57,6 +57,6 @@ describe "event creation" do
     click_on "Send Invitation"
 
     expect(page).to have_content "Your invitation was not sent"
-    expect(current_path).to eq(new_event_path)
+    expect(current_path).to eq(events_path)
   end
 end

@@ -4,7 +4,7 @@
 <%= form_for @event do |f| %>
   <%= fields_for :restaurant, @event.restaurant do |r| %>
     <%= r.hidden_field :yelp_id %>
-    <%= r.text_field :name, readonly: true %>
+    <%= r.text_field :name, value: @restaurant.name, readonly: true%>
   <% end %>
   <br>
   <%= @address[0] %><br>

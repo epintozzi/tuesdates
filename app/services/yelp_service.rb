@@ -5,4 +5,7 @@ class YelpService
     response.businesses
   end
 
+  def self.business_search(id)
+    response = Yelp.client.business(id)
+  end
 end

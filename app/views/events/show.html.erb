@@ -1,1 +1,16 @@
-<%= @event.restaurant.name %>
+<div class="col-md-6 event-left">
+</div>
+<div class="col-md-6 event-right">
+  <li><h6>Group</h6><%= @event.group.name %></li>
+  <li><h6>Organizer</h6><%= @event.user.first_name %> <%= @event.user.last_name %></li>
+  <li><h6>Where</h6><%= @event.restaurant.name %></li>
+  <li><%= @event.restaurant.street %></li>
+  <li><%= @event.restaurant.city %>, <%= @event.restaurant.state %> <%= @event.restaurant.zip %></li>
+  <li><h6>When</h6><%= @event.event_start %></li>
+  <h6>Who's Coming?</h6>
+  <% @event.group.users.each do |user|%>
+    <li>
+      <%= user.first_name %> <%= user.last_name %>
+    </li>
+  <% end %>
+</div>

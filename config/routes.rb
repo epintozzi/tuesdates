@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
-  resources :groups
+  resources :groups do
+    resources :group_members, only: [:new, :create]
+  end
   resources :events, except: [:delete]
 
   get '/dashboard', to: 'dashboard#index'

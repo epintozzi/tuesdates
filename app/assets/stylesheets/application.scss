@@ -48,6 +48,11 @@ h5 {
   color: #5C6065;
 }
 
+h6 {
+  font-size: 16px;
+  color: #9B9B9B;
+}
+
 p, li {
   font-family: 'Lato', sans-serif;
   color: #4A4A4A;
@@ -184,6 +189,23 @@ a:hover {
   margin-top: -20px;
   height: 25em;
 }
+.event-left{
+  background-image: url("https://images.unsplash.com/uploads/1412198485051133af17f/5049dacb");
+  margin-top: -20px;
+  height: 25em;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.event-right{
+  background-color: #F7F2F6;
+  margin-top: -20px;
+  height: 25em;
+}
+
+.event-right li, .event-tile-details li {
+  display: flex;
+  align-items: baseline;
+}
 
 .inspiration {
   text-align: center;
@@ -227,4 +249,8 @@ a:hover {
 
 .restaurant-info li{
   color: #9B9B9B;
+}
+
+.event-tile-details {
+  border: 1px solid #9B9B9B;
 }

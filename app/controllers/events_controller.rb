@@ -1,6 +1,12 @@
 class EventsController < ApplicationController
 
   def index
+    if !current_user
+      flash[:warning] = "You must log in to see your events"
+      redirect_to root_path
+    else
+      @events = current_user.events
+    end
   end
 
   def show

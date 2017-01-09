@@ -1,0 +1,6 @@
+<h2>Reviews for <%= @restaurant.name %></h2>
+
+<% @reviews.each do |review| %>
+  <%=review.review_content %>
+  <%= review.stars %>
+<% end %>

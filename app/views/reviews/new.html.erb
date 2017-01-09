@@ -1,0 +1,11 @@
+<h2>Leave a review</h2>
+
+<%= form_for [@restaurant, @review] do |f| %>
+  <%= f.label :review_content %>
+  <%= f.text_area :review_content %>
+
+  <%= f.label :stars %>
+  <%= f.number_field :stars %>
+
+  <%= f.submit "Submit Review" %>
+<% end %>

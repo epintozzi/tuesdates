@@ -13,4 +13,5 @@
       <%= user.first_name %> <%= user.last_name %>
     </li>
   <% end %>
+  <%= link_to "Leave a review", new_restaurant_review_path(@event.restaurant) %>
 </div>

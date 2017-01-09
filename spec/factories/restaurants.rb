@@ -1,10 +1,10 @@
 FactoryGirl.define do
   factory :restaurant do
     sequence :yelp_id do |n|
-      "Yelp#{}"
+      "Yelp#{n}"
     end
     sequence :name do |n|
-      "Restaurant #{}"
+      "Restaurant #{n}"
     end
     street "123 main"
     city "Denver"

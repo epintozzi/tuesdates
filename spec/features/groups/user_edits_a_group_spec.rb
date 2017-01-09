@@ -44,6 +44,11 @@ describe "user edits a group" do
     group_1.users = [user]
     group_1.save
 
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
+    visit group_path(group_2)
+
+    expect(page).to_not have_link("Edit", :href=>"/groups/#{group_2.id}/edit")
   end
 
 end

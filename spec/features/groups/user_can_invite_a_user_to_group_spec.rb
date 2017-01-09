@@ -1,7 +1,7 @@
 require "rails_helper"
 
 describe "/group/:id/group_members/new" do
-  xscenario "user can invite someone to a group" do
+  scenario "user can invite someone to a group" do
     user = create(:user)
     invitee = create(:user)
     group = create(:group)

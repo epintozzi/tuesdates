@@ -12,8 +12,13 @@ RSpec.describe Restaurant, type: :model do
 
       expect(restaurant).to be_invalid
     end
-    it "is valid with all attributes" do
+    it "is valid with all required attributes" do
       restaurant = Restaurant.new(name: "restaurant name", yelp_id: "yelp id")
+
+      expect(restaurant).to be_valid
+    end
+    it "is valid with all attributes" do
+      restaurant = Restaurant.new(name: "restaurant name", yelp_id: "yelp id", street: "123 main", city: "denver", state: "co", zip: "12345")
 
       expect(restaurant).to be_valid
     end

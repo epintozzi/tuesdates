@@ -40,5 +40,9 @@ RSpec.describe Restaurant, type: :model do
       restaurant = create(:restaurant)
       expect(restaurant).to respond_to(:events)
     end
+    it "has many reviews" do
+      restaurant = create(:restaurant)
+      expect(restaurant).to respond_to(:reviews)
+    end
   end
 end

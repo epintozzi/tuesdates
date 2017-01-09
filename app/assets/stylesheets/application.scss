@@ -233,7 +233,13 @@ a:hover {
   padding-top: 10%;
 }
 
-.search-results, .search-label {
+.search-results, .search-label, .reviews-list {
+  padding-top: 40px;
+  padding-left: 30px;
+  margin-left: 15%;
+}
+
+.event-reviews-label {
   padding-top: 40px;
   padding-left: 30px;
   margin-left: 15%;

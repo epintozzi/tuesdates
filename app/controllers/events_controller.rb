@@ -20,7 +20,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.create(event_params)
+    @event = Event.new(event_params)
     @event.restaurant = Restaurant.find_or_create_by(restaurant_params)
     @event.user = current_user
     @restaurant = @event.restaurant

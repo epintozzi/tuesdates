@@ -24,5 +24,9 @@ RSpec.describe Group, type: :model do
       group = create(:group)
       expect(group).to respond_to(:users)
     end
+    it "has many events" do
+      group = create(:group)
+      expect(group).to respond_to(:events)
+    end
   end
 end

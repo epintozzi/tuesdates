@@ -1,22 +1,49 @@
 require 'rails_helper'
 
 describe User, type: :model do
-  scenario "user creates itself from an oauth hash" do
-    auth = {
-      'provider' => 'google',
-      'uid' => '1234567890',
-      'info'=> {
-        'email'=> "erin@email.com",
-        'first_name'=> "Erin",
-        'last_name'=> "Pintozzi",
-        'image'=> "image.png"
+  describe "user creation with oauth" do
+    scenario "user creates itself from an oauth hash" do
+      auth = {
+        'provider' => 'google',
+        'uid' => '1234567890',
+        'info'=> {
+          'email'=> "erin@email.com",
+          'first_name'=> "Erin",
+          'last_name'=> "Pintozzi",
+          'image'=> "image.png"
+        }
       }
-    }
-    User.from_omniauth(auth)
-    user = User.first
+      User.from_omniauth(auth)
+      user = User.last
 
-    expect(user.provider).to eq("google")
-    expect(user.uid).to eq("1234567890")
-    expect(user.email).to eq("erin@email.com")
+      expect(user.provider).to eq("google")
+      expect(user.uid).to eq("1234567890")
+      expect(user.email).to eq("erin@email.com")
+    end
+  end
+  describe "validations" do
+    it "is invalid without an email" do
+      user = User.create(uid: '123', provider: 'google')
+
+      expect(user).to be_invalid
+    end
+    it "valid with an email" do
+      user = User.create(email: '789@email.com')
+
+      expect(user).to be_valid
+    end
+    it "saves with all attributes" do
+      user = User.create(email: "952@email.com", provider: "google", uid: "45678", first_name: "erin", last_name: "pintozzi", image_url: "image.png")
+      expect(user).to be_valid
+    end
+  end
+  describe "uniqueness" do
+    it "requires a unique email to create a user" do
+      user = User.create(email: '456@email.com')
+      expect(user).to be_valid
+
+      user = User.new(email: '456@email.com')
+      expect(user).to be_invalid
+    end
   end
 end

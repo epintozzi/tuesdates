@@ -10,7 +10,7 @@
           <li><%= member.first_name %> <%= member.last_name %></li>
         <% end %>
     </div>
-  <%= link_to "Invite others to this group", groups_path %>
+  <%= link_to "Invite others to this group", new_group_group_member_path(@group) %>
   </div>
   <div class="col-md-4">
   </div>

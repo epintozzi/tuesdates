@@ -1,6 +1,13 @@
 <h2>Reviews for <%= @restaurant.name %></h2>
 
-<% @reviews.each do |review| %>
-  <%=review.review_content %>
-  <%= review.stars %>
-<% end %>
+<div class="container reviews-list">
+  <% if @reviews.empty? %>
+    <p><%= "There are no reviews for this restaurant." %></p>
+  <% else %>
+    <% @reviews.each do |review| %>
+      <li><%= review.stars %> Stars</li>
+      <li><%= review.review_content %></li>
+      <li><%= review.user.first_name %> <%= review.user.last_name %></li>
+    <% end %>
+  <% end %>
+</div>

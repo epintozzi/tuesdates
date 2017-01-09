@@ -26,10 +26,15 @@
 <div class="container event-reviews-label">
   <h5>Other Tuesdaters Said...</h5>
 </div>
+
 <div class="container reviews-list">
-  <% @event.restaurant.reviews.each do |review| %>
-    <li><%= review.stars %> Stars</li>
-    <li><%= review.review_content %></li>
-    <li><%= review.user.first_name %> <%= review.user.last_name %></li>
+  <% if @event.restaurant.reviews.empty? %>
+    <p><%= "There are no reviews for this restaurant." %></p>
+  <% else %>
+    <% @event.restaurant.reviews.each do |review| %>
+      <li><%= review.stars %> Stars</li>
+      <li><%= review.review_content %></li>
+      <li><%= review.user.first_name %> <%= review.user.last_name %></li>
+    <% end %>
   <% end %>
 </div>

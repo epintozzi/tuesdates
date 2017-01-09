@@ -1,14 +1,15 @@
 require "rails_helper"
 
 describe "/search" do
-  scenario "user can search for restaurants", :vcr do
+  xscenario "users location is auto filled by ip if left blank", :vcr do
     user = create(:user)
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-    
+
+    allow_any_instance_of(ActionDispatch::Request).to receive(:remote_ip).and_return('73.153.110.200')
+
     visit search_path
 
-    fill_in :location, with: "80216"
     fill_in :term, with: "tacos"
 
     click_on "Search"

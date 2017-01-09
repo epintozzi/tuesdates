@@ -13,6 +13,7 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+ @import 'bootstrap-datetimepicker';
 
  body.bg {
    background-image: url("https://images.unsplash.com/photo-1466978913421-dad2ebd01d17");
@@ -233,7 +234,13 @@ a:hover {
   padding-top: 10%;
 }
 
-.search-results, .search-label {
+.search-results, .search-label, .reviews-list {
+  padding-top: 40px;
+  padding-left: 30px;
+  margin-left: 15%;
+}
+
+.event-reviews-label {
   padding-top: 40px;
   padding-left: 30px;
   margin-left: 15%;

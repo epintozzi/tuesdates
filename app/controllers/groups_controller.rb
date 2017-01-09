@@ -18,7 +18,7 @@ class GroupsController < ApplicationController
   end
 
   def create
-    @group = Group.create(group_params)
+    @group = Group.new(group_params)
     @group.users = [current_user]
     if @group.save
       flash[:success] = "Your group was successfully created"

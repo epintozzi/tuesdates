@@ -18,7 +18,7 @@
     <div class="row restaurant-info">
       <div class="col-md-3">
         <ul>
-          <li class="rest-name"><%= link_to restaurant.name, dashboard_path %></li>
+          <li class="rest-name"><%= link_to restaurant.name, new_event_path %></li>
           <li><%= restaurant.location.address[0]%></li>
           <li><%= restaurant.location.city%>, <%= restaurant.location.state_code%> <%= restaurant.location.postal_code %></li>
         </ul>
@@ -31,11 +31,11 @@
         </ul>
       </div>
       <div class="col-md-2">
-        <%= link_to dashboard_path do %>
-          <button type="button" class="btn btn-success">
+        <%= link_to new_event_path(yelp_id: restaurant.id, restaurant_name: restaurant.name, street: restaurant.location.address[0], city: restaurant.location.city, state: restaurant.location.state_code, zip: restaurant.location.postal_code) do %>
+          <button type="button" class="btn btn-success create-event">
             +
           </button>
-          Plan your date
+
         <% end %>
       </div>
       <div class="col-md-3-offset">

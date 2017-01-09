@@ -1,0 +1,6 @@
+<%= form_for [@group_member.group, @group_member] do |f| %>
+  <%= fields_for :user, @group_member.user do |u|%>
+      <%= u.text_field :email %>
+  <% end %>
+  <%= f.submit "Invite" %>
+<% end %>

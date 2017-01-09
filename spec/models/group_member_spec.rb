@@ -30,4 +30,16 @@ RSpec.describe GroupMember, type: :model do
       expect(group_member).to respond_to(:group)
     end
   end
+
+  describe "uniqueness" do
+    it "has a unique user_id and group_id" do
+      user = create(:user)
+      group = create(:group)
+      group_member = GroupMember.create(user_id: user.id, group_id: group.id)
+      expect(group_member).to be_valid
+
+      group_member_2 = GroupMember.create(user_id: user.id, group_id: group.id)
+      expect(group_member_2).to be_invalid
+    end
+  end
 end

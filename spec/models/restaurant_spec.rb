@@ -24,7 +24,7 @@ RSpec.describe Restaurant, type: :model do
     end
   end
   describe "uniqueness" do
-    xit "has a unique yelp_id and name combination" do
+    it "has a unique yelp_id and name combination" do
       restaurant_1 = Restaurant.create(name: "restaurant_1", yelp_id: "yelp 1")
       expect(restaurant_1).to be_valid
 

@@ -17,11 +17,7 @@ describe "event creation" do
 
     expect(current_path).to eq(new_event_path)
 
-    select "2017", from:"event[event_start(1i)]"
-    select "January", from:"event[event_start(2i)]"
-    select "12", from:"event[event_start(3i)]"
-    select "6 PM", from:"event[event_start(4i)]"
-    select "30", from:"event[event_start(5i)]"
+    find('input#datepicker', visible: false).set("2018-10-10 06:30 PM")
 
     select group.name, from:"event[group_id]"
 
@@ -48,11 +44,7 @@ describe "event creation" do
 
     expect(current_path).to eq(new_event_path)
 
-    select "2017", from:"event[event_start(1i)]"
-    select "January", from:"event[event_start(2i)]"
-    select "12", from:"event[event_start(3i)]"
-    select "6 PM", from:"event[event_start(4i)]"
-    select "30", from:"event[event_start(5i)]"
+    find('input#datepicker', visible: false).set("2018-10-10 06:30 PM")
 
     click_on "Send Invitation"
 

@@ -5,7 +5,7 @@ class EventsController < ApplicationController
       flash[:warning] = "You must log in to see your events"
       redirect_to root_path
     else
-      @events = current_user.events
+      @events = current_user.invited_events
     end
   end
 

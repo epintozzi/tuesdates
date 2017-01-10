@@ -1,17 +1,27 @@
 <div class="container">
-
-  <div class="col-md-4">
-  </div>
-  <div class="col-md-4 group-info">
-    <h2> <%= @group.name %> </h2><%= link_to "Edit group", edit_group_path(@group) %>
-    <div class="group-members">
-      <h4> Group Members </h4>
-        <% @group.users.each do |member| %>
-          <li><%= member.first_name %> <%= member.last_name %></li>
-        <% end %>
+  <div class="row">
+    <div class="col-md-4">
     </div>
-  <%= link_to "Invite others to this group", new_group_group_member_path(@group) %>
+    <div class="col-md-4 group-info">
+      <h2> <%= @group.name %> </h2><%= link_to "Edit group", edit_group_path(@group) %>
+      <div class="group-members">
+        <h4> Group Members </h4>
+          <% @group.users.each do |member| %>
+            <li><%= member.first_name %> <%= member.last_name %></li>
+          <% end %>
+      </div>
+      <h3>Invite others to this group</h3>
+    </div>
+    <div class="col-md-4">
+    </div>
   </div>
-  <div class="col-md-4">
+  <div class="row">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4 invite-form">
+      <%= render partial: "invite" %>
+    </div>
+    <div class="col-md-4">
+    </div>
   </div>
 </div>

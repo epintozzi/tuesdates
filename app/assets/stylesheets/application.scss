@@ -148,15 +148,33 @@ a:hover {
   font-weight: 300;
 }
 
+.basic-page-header h2{
+  text-align: center;
+  background-color: #D62C80;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -20px;
+  padding: 20px;
+  color: #FFFFFF;
+}
+
 .group-info{
   text-align: center;
 }
 
-.group-members, .my-groups{
+.group-members{
   text-align: left;
   padding-top: 25px;
   padding-bottom: 25px;
   margin-left: 28%;
+}
+
+.my-groups{
+  text-align: center;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .btn-success{

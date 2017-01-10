@@ -1,7 +1,7 @@
 require "rails_helper"
 
 describe "/dashboard" do
-  xscenario "user sees past events on dashboard" do
+  scenario "user sees past events on dashboard" do
     user = create(:user)
     group = create(:group)
     group.users = [user]
@@ -14,10 +14,10 @@ describe "/dashboard" do
     expect(page).to have_content("Past Events")
     expect(page).to have_content(group.name)
     expect(page).to have_content(event.event_start)
-    expect(page).to have_content(event.user)
+    expect(page).to have_content(event.user.first_name)
     expect(page).to have_link("Details", :href=>"/events/#{event.id}")
   end
-  xscenario "user sees 'no past events' message on dashboard if they have no past events" do
+  scenario "user sees 'no past events' message on dashboard if they have no past events" do
     user = create(:user)
     group = create(:group)
     group.users = [user]

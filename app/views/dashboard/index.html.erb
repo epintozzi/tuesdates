@@ -20,8 +20,11 @@
   <h5>Upcoming Events</h5>
 </div>
 <div class="container upcoming-events-list">
-    <% @events.order('created_at DESC').take(4).each do |event| %>
-      <% if event.event_start.future? %>
+    <% if @future_events.empty? %>
+      <p>You have no upcoming events</p>
+    <% else %>
+      <% @future_events.limit(3).each do |event| %>
+        <%#= render partial: "event_tile" %>
         <div class="col-md-3 event-tile">
           <li><%= event.group.name %></li>
           <div class="event-tile-details">
@@ -38,17 +41,20 @@
   <h5>Past Events</h5>
 </div>
 <div class="container past-events-list">
-    <% @events.order('created_at DESC').take(4).each do |event| %>
-      <% if event.event_start.past? %>
-        <div class="col-md-3 event-tile">
-          <li><%= event.group.name %></li>
-          <div class="event-tile-details">
-            <li><h6>Organizer</h6><%= event.user.first_name %>
-            <%= event.user.last_name %></li>
-            <li><h6>Date</h6><%= event.event_start %></li>
-          </div>
-          <li><%= link_to "Details", event_path(event) %></li>
+  <% if @past_events.empty? %>
+    <p>You have no past events</p>
+  <% else %>
+    <% @past_events.limit(3).each do |event| %>
+      <%#= render partial: "event_tile" %>
+      <div class="col-md-3 event-tile">
+        <li><%= event.group.name %></li>
+        <div class="event-tile-details">
+          <li><h6>Organizer</h6><%= event.user.first_name %>
+          <%= event.user.last_name %></li>
+          <li><h6>Date</h6><%= event.event_start %></li>
         </div>
-      <% end %>
+        <li><%= link_to "Details", event_path(event) %></li>
+      </div>
     <% end %>
+  <% end %>
 </div>

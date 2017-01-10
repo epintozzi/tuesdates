@@ -1,7 +1,7 @@
 require "rails_helper"
 
 describe "/dashboard" do
-  xscenario "user sees upcoming events on dashboard" do
+  scenario "user sees upcoming events on dashboard" do
     user = create(:user)
     group = create(:group)
     group.users = [user]
@@ -14,10 +14,10 @@ describe "/dashboard" do
     expect(page).to have_content("Upcoming Events")
     expect(page).to have_content(group.name)
     expect(page).to have_content(event.event_start)
-    expect(page).to have_content(event.user)
+    expect(page).to have_content(event.user.first_name)
     expect(page).to have_link("Details", :href=>"/events/#{event.id}")
   end
-  xscenario "user sees 'no upcoming events' message on dashboard if they have no events scheduled" do
+  scenario "user sees 'no upcoming events' message on dashboard if they have no events scheduled" do
     user = create(:user)
     group = create(:group)
     group.users = [user]

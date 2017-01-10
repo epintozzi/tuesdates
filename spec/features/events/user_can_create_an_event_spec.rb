@@ -5,7 +5,7 @@ describe "event creation" do
     user = create(:user)
     group = create(:group)
     group.users = [user]
-    restaurant = create(:restaurant, yelp_id: "la-potranca-taqueria-denver")
+    create(:restaurant, yelp_id: "la-potranca-taqueria-denver")
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     visit search_path
@@ -32,7 +32,7 @@ describe "event creation" do
     user = create(:user)
     group = create(:group)
     group.users = [user]
-    restaurant = create(:restaurant, yelp_id: "la-potranca-taqueria-denver")
+    create(:restaurant, yelp_id: "la-potranca-taqueria-denver")
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     visit search_path

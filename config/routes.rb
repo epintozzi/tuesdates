@@ -2,8 +2,8 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
-  resources :groups do
-    resources :group_members, only: [:create]
+  resources :groups, except: [:destroy] do
+    resources :group_members, only: [:create, :destroy]
   end
 
   resources :events, except: [:destroy] do

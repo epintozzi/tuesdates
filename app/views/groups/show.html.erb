@@ -3,7 +3,9 @@
     <div class="col-md-4">
     </div>
     <div class="col-md-4 group-info">
-      <h2> <%= @group.name %> </h2><%= link_to "Edit group", edit_group_path(@group) %>
+      <h2> <%= @group.name %> </h2>
+      <%= link_to "Edit group", edit_group_path(@group) %>
+      <%= link_to "Leave group", group_group_member_path(@group), method: "delete" %>
       <div class="group-members">
         <h4> Group Members </h4>
           <% @group.users.each do |member| %>

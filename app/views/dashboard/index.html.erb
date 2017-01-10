@@ -9,7 +9,7 @@
 
 <div class="col-md-6 dash-right">
   <div class="inspiration">
-    <h4>You don't belong to any groups yet</h4>
+    <h4>Invite friends to join you on your next Tuesdate</h4>
     <%= link_to new_group_path do %>
     <button type="button" class="btn btn-success">Create new group</button>
     <% end %>
@@ -24,7 +24,7 @@
       <p>You have no upcoming events</p>
     <% else %>
       <% @future_events.limit(3).each do |event| %>
-        <%= render partial: "event_tile", locals: {event: event} %>
+        <%= render partial: "shared/event_tile", locals: {event: event} %>
       <% end %>
     <% end %>
 </div>
@@ -36,7 +36,7 @@
     <p>You have no past events</p>
   <% else %>
     <% @past_events.limit(3).each do |event| %>
-      <%= render partial: "event_tile", locals: {event: event} %>
+      <%= render partial: "shared/event_tile", locals: {event: event} %>
     <% end %>
   <% end %>
 </div>

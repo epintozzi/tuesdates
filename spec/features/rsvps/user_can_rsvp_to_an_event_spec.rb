@@ -13,7 +13,7 @@ describe "/events/:id/rsvp" do
     rsvp = event.rsvps.where(user_id: user.id).first
 
     visit event_path(event)
-    click_on "RSVP"
+    click_link "RSVP"
     expect(page).to have_content("Update your RSVP for #{event.restaurant.name} on #{event.event_start}")
     expect(current_path).to eq(edit_event_rsvp_path(event, rsvp))
     select "attending"

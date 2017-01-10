@@ -9,17 +9,17 @@ RSpec.describe Event, type: :model do
     end
 
     it "is invalid without a user" do
-      event = Event.new(group_id: @group.id, restaurant_id: @restaurant.id, event_start: "2017-01-07 15:24:48")
+      event = Event.new(group_id: @group.id, restaurant_id: @restaurant.id, event_start: "2027-01-07 15:24:48")
 
       expect(event).to be_invalid
     end
     it "is invalid without a group" do
-      event = Event.new(user_id: @user.id, restaurant_id: @restaurant.id, event_start: "2017-01-07 15:24:48")
+      event = Event.new(user_id: @user.id, restaurant_id: @restaurant.id, event_start: "2027-01-07 15:24:48")
 
       expect(event).to be_invalid
     end
     it "is invalid without a restaurant" do
-      event = Event.new(group_id: @group.id, user_id: @user.id, event_start: "2017-01-07 15:24:48")
+      event = Event.new(group_id: @group.id, user_id: @user.id, event_start: "2027-01-07 15:24:48")
 
       expect(event).to be_invalid
     end
@@ -28,8 +28,14 @@ RSpec.describe Event, type: :model do
 
       expect(event).to be_invalid
     end
+    it "is invalid with a past event_start date" do
+      event = Event.new(group_id: @group.id, user_id: @user.id, restaurant_id: @restaurant.id, event_start: "2017-01-07 15:24:48")
+
+      expect(event).to be_invalid
+    end
+
     it "is valid with all attributes" do
-      event = Event.new(user_id: @user.id, group_id: @group.id, restaurant_id: @restaurant.id, event_start: "2017-01-07 15:24:48")
+      event = Event.new(user_id: @user.id, group_id: @group.id, restaurant_id: @restaurant.id, event_start: "2027-01-07 15:24:48")
 
       expect(event).to be_valid
     end
@@ -50,6 +56,14 @@ RSpec.describe Event, type: :model do
     it "has many rsvps" do
       event = create(:event)
       expect(event).to respond_to(:rsvps)
+    end
+    it "has many users" do
+      event = create(:event)
+      expect(event).to respond_to(:users)
+    end
+    it "has many group_memberss" do
+      event = create(:event)
+      expect(event).to respond_to(:group_members)
     end
   end
 end

@@ -18,7 +18,7 @@
     <div class="row restaurant-info">
       <div class="col-md-3">
         <ul>
-          <li class="rest-name"><%= link_to restaurant.name, new_event_path %></li>
+          <li class="rest-name"><%=restaurant.name%></li>
           <li><%= restaurant.location.address[0]%></li>
           <li><%= restaurant.location.city%>, <%= restaurant.location.state_code%> <%= restaurant.location.postal_code %></li>
         </ul>
@@ -26,8 +26,20 @@
       <div class="col-md-4">
         <ul>
           <li><%= restaurant.rating%> on Yelp</li>
-          <li> 3 other Tuesdaters have eaten here</li>
-          <li><%= link_to "See Reviews", dashboard_path %></li>
+          <% if Restaurant.count_past_events_at_restaurant(restaurant) > 0%>
+            <li>
+              <%= Restaurant.count_past_events_at_restaurant(restaurant)%> other Tuesdaters have eaten here
+            </li>
+          <% else %>
+            <li>Be the first Tuesdater to eat here</li>
+          <% end %>
+          <li>
+            <% if !Restaurant.has_reviews?(restaurant)%>
+              <li>There are no reviews for this restaurant</li>
+            <% else %>
+              <%= link_to "See Reviews", restaurant_reviews_path(Restaurant.find_restaurant_from_yelp_response(restaurant)) %>
+            <% end %>
+          </li>
         </ul>
       </div>
       <div class="col-md-2">

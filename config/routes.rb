@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'home#index'
 
   resources :groups do
-    resources :group_members, only: [:new, :create]
+    resources :group_members, only: [:create]
   end
 
   resources :events, except: [:destroy] do

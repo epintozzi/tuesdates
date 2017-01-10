@@ -5,7 +5,7 @@ class EventsController < ApplicationController
       flash[:warning] = "You must log in to see your events"
       redirect_to root_path
     else
-      @events = current_user.events
+      @events = current_user.invited_events
     end
   end
 
@@ -31,7 +31,7 @@ class EventsController < ApplicationController
       flash[:success] = "Your invitation has been sent!"
       redirect_to event_path(@event)
     else
-      flash[:failure] = "Your invitation was not sent"
+      flash[:failure] = "Your invitation was not sent. #{@event.errors.full_messages.join(' ')}"
       render :new
     end
   end

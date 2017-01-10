@@ -3,8 +3,13 @@ require "rails_helper"
 describe "/reviews/new" do
   scenario "user can leave a review on restaurant of a past event" do
     user = create(:user)
+    user_2 = create(:user)
     restaurant = create(:restaurant)
-    event = create(:event, event_start: "2017-01-02 15:24:48", user_id: user.id, restaurant_id: restaurant.id)
+    group = create(:group)
+    group.users = [user]
+    event = Event.new(group_id: group.id, event_start: "2017-01-07 15:24:48", user_id: user_2.id, restaurant_id: restaurant.id)
+    event.save(validate: false)
+
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     visit event_path(event)

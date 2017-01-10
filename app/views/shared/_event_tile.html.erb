@@ -5,5 +5,10 @@
     <%= event.user.last_name %></li>
     <li><h6>Date</h6><%= format_long_date(event.event_start) %></li>
   </div>
-  <li><%= link_to "Details", event_path(event) %></li>
+  <li><%= link_to event_path(event) do%>
+    <button type="button" class="btn btn-success">
+      Details
+    </button>
+    <% end %>
+  </li>
 </div>

@@ -31,7 +31,7 @@ class EventsController < ApplicationController
       flash[:success] = "Your invitation has been sent!"
       redirect_to event_path(@event)
     else
-      flash[:failure] = "Your invitation was not sent"
+      flash[:failure] = "Your invitation was not sent. #{@event.errors.full_messages.join(' ')}"
       render :new
     end
   end

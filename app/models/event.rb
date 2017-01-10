@@ -1,5 +1,5 @@
 class Event < ApplicationRecord
-  validates :event_start, presence: true
+  validates :event_start, presence: true, date: true
 
   belongs_to :restaurant
   belongs_to :user

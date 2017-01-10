@@ -2,6 +2,8 @@ class User < ApplicationRecord
   has_many :group_members
   has_many :groups, through: :group_members
   has_many :events
+  # has_many :groups, through: :events
+  has_many :rsvps
 
   validates :email, presence: true
   validates_uniqueness_of :email

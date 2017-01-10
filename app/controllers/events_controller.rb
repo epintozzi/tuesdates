@@ -11,6 +11,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @rsvp = Rsvp.find_by(user: current_user, event: @event)
   end
 
   def new

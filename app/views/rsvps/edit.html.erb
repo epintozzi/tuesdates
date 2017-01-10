@@ -1,0 +1,6 @@
+<h2>Update your RSVP for <%= "#{@event.restaurant.name} on #{@event.event_start}" %></h2>
+
+<%= form_for [@event, @rsvp] do |f| %>
+  <%= f.select :status, Rsvp.statuses.keys.to_a %>
+  <%= f.submit "Confirm RSVP" %>
+<% end %>

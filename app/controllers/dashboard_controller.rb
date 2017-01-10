@@ -1,9 +1,7 @@
 class DashboardController < ApplicationController
 
   def index
-    @events = current_user.groups.each do |group|
-      group.events
-    end
+    @events = current_user.events
   end
 
 end

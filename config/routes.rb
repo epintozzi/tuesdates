@@ -6,11 +6,14 @@ Rails.application.routes.draw do
     resources :group_members, only: [:new, :create]
   end
 
-  resources :events, except: [:delete]
+  resources :events, except: [:destroy] do
+    resources :rsvps, only: [:edit, :update]
+  end
 
-  resources :restaurants do
+  resources :restaurants, only: [:show] do
     resources :reviews, only: [:index, :new, :create]
   end
+
 
   get '/dashboard', to: 'dashboard#index'
 

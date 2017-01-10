@@ -15,3 +15,28 @@
     <% end %>
   </div>
 </div>
+
+<div class="container upcoming-label">
+  <h5>Upcoming Events</h5>
+</div>
+<div class="container upcoming-events-list">
+    <% if @future_events.empty? %>
+      <p>You have no upcoming events</p>
+    <% else %>
+      <% @future_events.limit(3).each do |event| %>
+        <%= render partial: "event_tile", locals: {event: event} %>
+      <% end %>
+    <% end %>
+</div>
+<div class="container past-label">
+  <h5>Past Events</h5>
+</div>
+<div class="container past-events-list">
+  <% if @past_events.empty? %>
+    <p>You have no past events</p>
+  <% else %>
+    <% @past_events.limit(3).each do |event| %>
+      <%= render partial: "event_tile", locals: {event: event} %>
+    <% end %>
+  <% end %>
+</div>

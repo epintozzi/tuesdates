@@ -2,8 +2,8 @@
   <div class="col-md-6 event-left">
   </div>
   <div class="col-md-6 event-right">
-    <% if @event.event_start.future? %>
-      <%= link_to "RSVP", new_restaurant_review_path(@event.restaurant) %>
+    <% if !@rsvp.nil? && @event.event_start.future? %>
+      <%= link_to "RSVP", edit_event_rsvp_path(@event, @rsvp) %>
     <% end %>
     <li><h6>Group</h6><%= @event.group.name %></li>
     <li><h6>Organizer</h6><%= @event.user.first_name %> <%= @event.user.last_name %></li>

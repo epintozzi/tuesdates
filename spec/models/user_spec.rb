@@ -46,4 +46,22 @@ describe User, type: :model do
       expect(user).to be_invalid
     end
   end
+  describe "relationships" do
+    it "has many rsvps" do
+      user = create(:user)
+      expect(user).to respond_to(:rsvps)
+    end
+    it "has many groups" do
+      user = create(:user)
+      expect(user).to respond_to(:groups)
+    end
+    it "has many group_members" do
+      user = create(:user)
+      expect(user).to respond_to(:group_members)
+    end
+    it "has many events" do
+      user = create(:user)
+      expect(user).to respond_to(:events)
+    end
+  end
 end

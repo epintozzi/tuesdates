@@ -11,6 +11,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @rsvp = Rsvp.find_by(user: current_user, event: @event)
   end
 
   def new
@@ -24,6 +25,8 @@ class EventsController < ApplicationController
     @event.restaurant = Restaurant.find_or_create_by(restaurant_params)
     @event.user = current_user
     @restaurant = @event.restaurant
+    # Ensure we save the time local to the Restaurant's timezone
+    @event.event_start = @restaurant.timezone.local_to_utc(@event.event_start)
     if @event.save
       flash[:success] = "Your invitation has been sent!"
       redirect_to event_path(@event)

@@ -6,6 +6,6 @@ class YelpService
   end
 
   def self.business_search(id)
-    response = Yelp.client.business(id)
+    Yelp.client.business(id)
   end
 end

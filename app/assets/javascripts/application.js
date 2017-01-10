@@ -16,3 +16,12 @@
 //= require_tree .
 //= require moment
 //= require bootstrap-datetimepicker
+//= require_self
+
+$(function () {
+    $('#datepicker').datetimepicker({
+        inline: true,
+        sideBySide: true,
+        format: "YYYY-MM-DD HH:mm A"
+    });
+});

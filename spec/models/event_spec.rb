@@ -57,5 +57,13 @@ RSpec.describe Event, type: :model do
       event = create(:event)
       expect(event).to respond_to(:rsvps)
     end
+    it "has many users" do
+      event = create(:event)
+      expect(event).to respond_to(:users)
+    end
+    it "has many group_memberss" do
+      event = create(:event)
+      expect(event).to respond_to(:group_members)
+    end
   end
 end

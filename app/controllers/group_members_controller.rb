@@ -15,6 +15,14 @@ class GroupMembersController < ApplicationController
     end
   end
 
+  def destroy
+    @group = Group.find(params[:group_id])
+    @group_member = GroupMember.where(group: @group, user: current_user)
+    @group_member.first.destroy
+    flash[:success] = "You have left the group: #{@group.name}"
+    redirect_to groups_path
+  end
+
   private
 
   def group_member_params

@@ -47,9 +47,6 @@ class GroupsController < ApplicationController
 
   end
 
-  def destroy
-  end
-
   private
 
   def group_params

@@ -2,5 +2,5 @@
   <%= fields_for :user, @group_member.user do |u|%>
       <%= u.text_field :email %>
   <% end %>
-  <%= f.submit "Invite" %>
+  <%= f.submit "Invite", class: "btn-primary" %>
 <% end %>

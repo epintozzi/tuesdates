@@ -24,7 +24,7 @@
       <p>You have no upcoming events</p>
     <% else %>
       <% @future_events.limit(3).each do |event| %>
-        <%= render partial: "event_tile", locals: {event: event} %>
+        <%= render partial: "shared/event_tile", locals: {event: event} %>
       <% end %>
     <% end %>
 </div>
@@ -36,7 +36,7 @@
     <p>You have no past events</p>
   <% else %>
     <% @past_events.limit(3).each do |event| %>
-      <%= render partial: "event_tile", locals: {event: event} %>
+      <%= render partial: "shared/event_tile", locals: {event: event} %>
     <% end %>
   <% end %>
 </div>

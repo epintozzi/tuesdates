@@ -13,7 +13,7 @@ describe "/dashboard" do
 
     expect(page).to have_content("Upcoming Events")
     expect(page).to have_content(group.name)
-    expect(page).to have_content(event.event_start)
+    expect(page).to have_content("Jan 7, 2028")
     expect(page).to have_content(event.user.first_name)
     expect(page).to have_link("Details", :href=>"/events/#{event.id}")
   end

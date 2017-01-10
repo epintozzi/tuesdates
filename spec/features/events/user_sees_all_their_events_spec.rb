@@ -14,9 +14,9 @@ describe "/events" do
 
     expect(page).to have_content(event_1.user.first_name)
     expect(page).to have_content(event_1.group.name)
-    expect(page).to have_content(event_1.event_start)
+    expect(page).to have_content("Jan 7, 2027")
     expect(page).to have_content(event_2.user.first_name)
     expect(page).to have_content(event_2.group.name)
-    expect(page).to have_content(event_2.event_start)
+    expect(page).to have_content("Jan 7, 2027")
   end
 end

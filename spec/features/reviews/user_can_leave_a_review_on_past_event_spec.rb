@@ -9,7 +9,7 @@ describe "/reviews/new" do
 
     visit event_path(event)
 
-    click_on "Leave a review"
+    click_link "Leave a review"
     expect(current_path).to eq(new_restaurant_review_path(restaurant))
     fill_in "review[review_content]", with: "this was a great restaurant"
     fill_in "review[stars]", with: 4

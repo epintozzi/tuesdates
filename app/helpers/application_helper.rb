@@ -7,5 +7,10 @@ module ApplicationHelper
     (event_start).strftime('%b %e, %Y')
   end
 
+  # def reviews?(restaurant)
+  #   id = restaurant.id
+  #   restaurant = Restaurant.find_by(yelp_id: id)
+  #   restaurant.reviews.empty?
+  # end
 
 end

@@ -461,3 +461,37 @@ a:hover {
   margin-left: 40%;
   margin-top: 3em;
 }
+
+.invite-form #new_group_member {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+}
+
+.invite-button {
+  width: 70px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin-top: 10px;
+}
+
+.invite-form-field {
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block !important;
+}
+
+.create-group-button {
+  width: 150px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin-top: 10px;
+}
+
+.bootstrap-datepicker-widget .row{
+  // width: 50%;
+}

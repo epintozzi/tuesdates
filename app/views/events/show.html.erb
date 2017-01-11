@@ -13,7 +13,7 @@
       <li><h6>Where</h6><%= @event.restaurant.name %>,
       <%= @event.restaurant.street %>,
       <%= @event.restaurant.city %>, <%= @event.restaurant.state %> <%= @event.restaurant.zip %></li>
-      <li><h6>When</h6><%= format_datetime(@event.event_start) %></li>
+      <li><h6>When</h6><%= format_datetime(@event) %></li>
         <li><h6>Who's Coming?</h6></li>
         <div class="whos-coming">
           <% @event.rsvps.each do |rsvp|%>

@@ -1,7 +1,7 @@
 require "rails_helper"
 
 describe "/events/:id/rsvp" do
-  scenario "user can RSVP to an event" do
+  scenario "user can RSVP to an event", :vcr do
     user = create(:user)
     event = create(:event, user_id: user.id)
     event.group.users = [user]

@@ -1,7 +1,7 @@
 require "rails_helper"
 
 describe "/reviews/new" do
-  scenario "user can leave a review on restaurant of a past event" do
+  scenario "user can leave a review on restaurant of a past event", :vcr do
     user = create(:user)
     user_2 = create(:user)
     restaurant = create(:restaurant)

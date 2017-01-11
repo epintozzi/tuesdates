@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  load_and_authorize_resource only: [:index, :new, :create]
 
   def index
     @restaurant = Restaurant.find(params[:restaurant_id])

@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  load_and_authorize_resource only: [:show, :new, :create, :edit, :update]
 
   def index
     if !current_user
@@ -10,7 +11,6 @@ class EventsController < ApplicationController
   end
 
   def show
-    @event = Event.find(params[:id])
     @rsvp = Rsvp.find_by(user: current_user, event: @event)
   end
 
@@ -37,12 +37,10 @@ class EventsController < ApplicationController
   end
 
   def edit
-    @event = Event.find(params[:id])
     @restaurant = @event.restaurant
   end
 
   def update
-    @event = Event.find(params[:id])
     @restaurant = @event.restaurant
     if @event.update(event_params)
       flash[:success] = "Your event has been updated and new RSVPs will be sent to the group."

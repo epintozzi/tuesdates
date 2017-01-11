@@ -3,9 +3,8 @@ require "rails_helper"
 describe "/event/:id/edit" do
   scenario "organizing user can edit an existing event" do
     user = create(:user)
-    # group = create(:group)
-    # group.users = [user]
     event = create(:event, user_id: user.id)
+    event.group.users = [user]
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 

@@ -1,4 +1,5 @@
 class GroupMembersController < ApplicationController
+  authorize_resource only: [:create, :destroy]
 
   def create
     @group_member = GroupMember.new(group_id: params[:group_id])

@@ -7,6 +7,8 @@ describe "user edits a group" do
     group.users = [user]
     group.save
 
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
     visit group_path(group)
 
     expect(page).to have_content("old name")
@@ -26,6 +28,8 @@ describe "user edits a group" do
     group = create(:group, name: "old name")
     group.users = [user]
     group.save
+
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     visit group_path(group)
 

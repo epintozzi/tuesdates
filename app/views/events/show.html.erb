@@ -8,6 +8,7 @@
           <button type="button" class="btn btn-success">RSVP</button>
         <% end %>
       <% end %>
+
       <li><h6>Group</h6><%= @event.group.name %></li>
       <li><h6>Organizer</h6><%= @event.user.first_name %> <%= @event.user.last_name %></li>
       <li><h6>Where</h6><%= @event.restaurant.name %>,
@@ -27,7 +28,9 @@
           <% end %>
       </div>
       <% if  @event.event_start.future? && @event.user == current_user%>
-        <%= link_to "Edit", edit_event_path(@event)%>
+        <%= link_to edit_event_path(@event) do%>
+        <button type="button" class="btn btn-primary">Edit</button>
+        <% end %>
       <% end %>
       <br>
       <% if @event.event_start.past? %>

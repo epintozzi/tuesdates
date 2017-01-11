@@ -1,5 +1,5 @@
 <div class="col-md-3 event-tile">
-  <li><%= event.group.name %></li>
+  <li><%= link_to event.group.name, group_path(event.group) %></li>
   <div class="event-tile-details">
     <li><h6>Organizer</h6><%= event.user.first_name %>
     <%= event.user.last_name %></li>

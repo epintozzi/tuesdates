@@ -1,8 +1,8 @@
-<div class="event-header">
+<div class="row event-header">
   <div class="col-md-6 event-left">
   </div>
   <div class="col-md-6 event-right">
-    <div class="container event-details">
+    <div class="event-details">
       <% if !@rsvp.nil? && @event.event_start.future? %>
         <%= link_to edit_event_rsvp_path(@event, @rsvp) do%>
           <button type="button" class="btn btn-success">RSVP</button>
@@ -10,15 +10,20 @@
       <% end %>
       <li><h6>Group</h6><%= @event.group.name %></li>
       <li><h6>Organizer</h6><%= @event.user.first_name %> <%= @event.user.last_name %></li>
-      <li><h6>Where</h6><%= @event.restaurant.name %></li>
-      <li><%= @event.restaurant.street %></li>
-      <li><%= @event.restaurant.city %>, <%= @event.restaurant.state %> <%= @event.restaurant.zip %></li>
+      <li><h6>Where</h6><%= @event.restaurant.name %>,
+      <%= @event.restaurant.street %>,
+      <%= @event.restaurant.city %>, <%= @event.restaurant.state %> <%= @event.restaurant.zip %></li>
       <li><h6>When</h6><%= format_datetime(@event.event_start) %></li>
-      <h6>Who's Coming?</h6>
-      <% @event.rsvps.each do |rsvp|%>
-        <li>
-          <%= rsvp.user.first_name %> <%= rsvp.user.last_name %> <%= rsvp.status %>
-        </li>
+      <div class="whos-coming">
+        <li><h6>Who's Coming?</h6></li>
+          <% @event.rsvps.each do |rsvp|%>
+            <li>
+              <%= rsvp.user.first_name %> <%= rsvp.user.last_name %> <%= rsvp.status %>
+            </li>
+          <% end %>
+      </div>
+      <% if  @event.event_start.future? && @event.user == current_user%>
+        <%= link_to "Edit", edit_event_path(@event)%>
       <% end %>
       <br>
       <% if @event.event_start.past? %>
@@ -39,9 +44,9 @@
     <p><%= "There are no reviews for this restaurant." %></p>
   <% else %>
     <% @event.restaurant.reviews.each do |review| %>
-      <li><%= review.stars %> Stars</li>
-      <li><%= review.review_content %></li>
-      <li><%= review.user.first_name %> <%= review.user.last_name %></li>
+      <li class="review-stars"><%= review.stars %> Stars</li>
+      <li class="review-content"><%= review.review_content %></li>
+      <li class="reviewer-name"><%= review.user.first_name %> <%= review.user.last_name %></li>
     <% end %>
   <% end %>
 </div>

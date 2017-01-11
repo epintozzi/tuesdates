@@ -1,4 +1,5 @@
 class RsvpsController < ApplicationController
+  load_and_authorize_resource only: [:edit, :update]
 
   def edit
     @event = Event.find(params[:event_id])

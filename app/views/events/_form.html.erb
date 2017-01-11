@@ -1,0 +1,15 @@
+<%= form_for @event do |f| %>
+  <%= fields_for :restaurant, @event.restaurant do |r| %>
+    <%= r.hidden_field :yelp_id %>
+    <%= r.text_field :name, value: @restaurant.name, readonly: true%>
+  <% end %>
+  <br>
+  <%= @restaurant.street%><br>
+  <%= @restaurant.city%>, <%= @restaurant.state%> <%= @restaurant.zip%><br>
+
+  <%= f.hidden_field :event_start, "data-provide" => 'datepicker', id: 'datepicker' %>
+
+  <%= f.collection_select(:group_id, current_user.groups, :id, :name, {prompt: "Choose a group to invite"}) %>
+
+    <%= f.submit "Send Invitation", class: 'btn-success' %>
+  <% end %>

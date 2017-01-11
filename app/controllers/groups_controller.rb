@@ -1,4 +1,5 @@
 class GroupsController < ApplicationController
+  load_and_authorize_resource only: [:show, :new, :create, :edit, :update]
 
   def index
     if !current_user
@@ -10,7 +11,6 @@ class GroupsController < ApplicationController
   end
 
   def show
-    @group = Group.find(params[:id])
     @group_member = GroupMember.new
   end
 
@@ -31,11 +31,9 @@ class GroupsController < ApplicationController
   end
 
   def edit
-    @group = Group.find(params[:id])
   end
 
   def update
-    @group = Group.find(params[:id])
     @group.update(group_params)
     if @group.save
       flash[:success] = "Your group has been updated"

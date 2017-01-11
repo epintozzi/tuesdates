@@ -14,7 +14,6 @@ Rails.application.routes.draw do
     resources :reviews, only: [:index, :new, :create]
   end
 
-
   get '/dashboard', to: 'dashboard#index'
 
   get '/search', to: 'search#index'

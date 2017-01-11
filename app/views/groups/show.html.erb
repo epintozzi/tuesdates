@@ -5,12 +5,12 @@
     <div class="col-md-4 group-info">
       <h2> <%= @group.name %> </h2>
       <%= link_to "Edit group", edit_group_path(@group) %>
-      <%= link_to "Leave group", group_group_member_path(@group), method: "delete" %>
       <div class="group-members">
         <h4> Group Members </h4>
           <% @group.users.each do |member| %>
             <li><%= member.first_name %> <%= member.last_name %></li>
-          <% end %>
+          <% end %><br>
+          <%= link_to "Leave group", group_group_member_path(@group), method: "delete" %>
       </div>
       <h4>Invite others to this group</h4>
     </div>
@@ -25,5 +25,10 @@
     </div>
     <div class="col-md-4">
     </div>
+  </div>
+  <div class="row">
+    <% @group.events.each do |event| %>
+      <%= render partial: "shared/event_tile", locals: {event: event} %>
+    <% end %>
   </div>
 </div>

@@ -1,5 +1,6 @@
 class SearchController < ApplicationController
-
+  authorize_resource class: false
+  
   def index
     location = params[:location]
     location = request.location.try(:city) || '80216' if location.nil? || location.empty?

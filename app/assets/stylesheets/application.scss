@@ -179,9 +179,10 @@ a:hover {
 
 .btn-success{
   background-color: #D62C80;
-  border-style: none;
+  border: 2px solid #D62C80;
   box-shadow: 0 1px 2px 0 #BFB7AE;
   border-radius: 48px;
+  padding: 2px 12px;
 }
 .btn-primary{
   background-color: white;
@@ -189,6 +190,7 @@ a:hover {
   color: #D62C80;
   box-shadow: 0 1px 2px 0 #BFB7AE;
   border-radius: 48px;
+  padding: 2px 12px;
 }
 
 .btn-success:hover{
@@ -199,7 +201,7 @@ a:hover {
 
 .btn-primary:hover {
   background-color: #D62C80;
-  border-style: none;
+  border: 2px solid #D62C80;
 }
 
 .btn-success:active, .btn-success:focus, .btn-success:active:hover, .btn-success:active:focus, .btn-success:active:hover{
@@ -275,10 +277,17 @@ a:hover {
   padding-top: 10%;
 }
 
-.search-results, .search-label, .reviews-list {
+.search-results, .search-label {
   padding-top: 40px;
   padding-left: 30px;
   margin-left: 15%;
+}
+
+.reviews-list {
+  padding-top: 40px;
+  padding-left: 30px;
+  margin-left: 20%;
+  max-width: 70%;
 }
 
 .event-reviews-label {
@@ -300,6 +309,38 @@ a:hover {
   color: #9B9B9B;
 }
 
+.event-tile {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.event-tile a{
+  font-weight: 400;
+}
+
+.event-tile li{
+  text-align: center;
+}
+
 .event-tile-details {
   border: 1px solid #9B9B9B;
+  padding: 12px 10px;
+}
+
+.reviewer-name {
+  font-style: italic;
+}
+
+.review-content {
+  color: #9B9B9B;
+}
+
+.event-details h6{
+  text-align: right;
+  min-width: 120px;
+  margin-right: 20px;
+}
+
+.whos-coming {
+  align-items: center;
 }

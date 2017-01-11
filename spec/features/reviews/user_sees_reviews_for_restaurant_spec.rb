@@ -5,6 +5,7 @@ describe "event/:id" do
     @user = create(:user)
     @restaurant = create(:restaurant)
     @event = create(:event, user_id: @user.id, restaurant_id: @restaurant.id)
+    @event.group.users = [@user]
   end
   scenario "user sees reviews for restaurant assigned to their event" do
     review = create(:review, restaurant_id: @restaurant.id)

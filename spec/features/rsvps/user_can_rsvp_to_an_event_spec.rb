@@ -14,7 +14,7 @@ describe "/events/:id/rsvp" do
 
     visit event_path(event)
     click_link "RSVP"
-    expect(page).to have_content("Update your RSVP for #{event.restaurant.name} on #{event.event_start}")
+    expect(page).to have_content("Update your RSVP for #{event.restaurant.name}")
     expect(current_path).to eq(edit_event_rsvp_path(event, rsvp))
     select "attending"
     click_on "Confirm RSVP"

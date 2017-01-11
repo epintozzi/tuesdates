@@ -1,11 +1,12 @@
-<h2>Leave a review</h2>
-
+<div class="basic-page-header">
+  <h2>Leave a review for <%= @restaurant.name %></h2>
+</div>
 <%= form_for [@restaurant, @review] do |f| %>
-  <%= f.label :review_content %>
-  <%= f.text_area :review_content %>
+  <%= f.label :review_content, class: 'form-label' %>
+  <%= f.text_area :review_content, class: 'form-control review-form-field', rows:"3" %>
 
-  <%= f.label :stars %>
-  <%= f.number_field :stars %>
+  <%= f.label :stars, class: 'form-label' %>
+  <%= f.number_field :stars, class: 'form-control invite-form-field' %>
 
-  <%= f.submit "Submit Review" %>
+  <%= f.submit "Submit Review", class: 'btn btn-success create-group-button' %>
 <% end %>

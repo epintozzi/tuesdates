@@ -483,6 +483,12 @@ a:hover {
   margin-right: auto;
   display: block !important;
 }
+.review-form-field {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block !important;
+}
 
 .create-group-button {
   width: 150px;
@@ -490,6 +496,14 @@ a:hover {
   margin-right: auto;
   display: block;
   margin-top: 10px;
+}
+
+.rsvp-picker {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
 }
 
 .bootstrap-datepicker-widget .row{

@@ -19,4 +19,11 @@ describe "/events" do
     expect(page).to have_content(event_2.group.name)
     expect(page).to have_content("Jan 7, 2027")
   end
+  scenario "logged out/unregistered user can't see events" do
+    visit events_path
+
+    expect(page).to have_content("You must log in to see your events")
+    expect(page).to_not have_content("My Events")
+    expect(current_path).to eq(root_path)
+  end
 end

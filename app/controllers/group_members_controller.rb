@@ -26,10 +26,6 @@ class GroupMembersController < ApplicationController
 
   private
 
-  def group_member_params
-    params.require(:group_member).permit(:id, :group_id, :user_id)
-  end
-
   def user_params
     params.require(:user).permit(:id, :email)
   end

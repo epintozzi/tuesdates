@@ -42,7 +42,7 @@ describe "user edits a group" do
     expect(page).to have_content("Your changes were not saved")
   end
 
-  xscenario "a user cannot edit a group they do not belong to" do
+  scenario "a user cannot edit a group they do not belong to" do
     user = create(:user)
     group_1, group_2 = create_list(:group, 2)
     group_1.users = [user]
@@ -52,7 +52,8 @@ describe "user edits a group" do
 
     visit group_path(group_2)
 
-    expect(page).to_not have_link("Edit", :href=>"/groups/#{group_2.id}/edit")
+    expect(page).to have_content("You are not authorized to access this page.")
+    expect(current_path).to eq(root_path)
   end
 
 end

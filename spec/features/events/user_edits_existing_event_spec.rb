@@ -28,4 +28,19 @@ describe "/event/:id/edit" do
 
     expect(page).to_not have_link("Edit", :href=>"/event/#{event.id}/edit")
   end
+  scenario "user sees error if event does not update" do
+    user = create(:user)
+    event = create(:event, user_id: user.id)
+    event.group.users = [user]
+
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
+    visit event_path(event)
+    click_on "Edit"
+    find('input#datepicker', visible: false).set("2016-11-11 06:00 PM")
+    click_on "Send Invitation"
+
+    expect(page).to have_content "Your event did not update. Please try again."
+    expect(current_path).to eq(event_path(event))
+  end
 end

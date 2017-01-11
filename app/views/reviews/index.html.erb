@@ -6,7 +6,7 @@
     <p><%= "There are no reviews for this restaurant." %></p>
   <% else %>
     <% @reviews.each do |review| %>
-      <li class="review-stars"><%= review.stars %> Stars</li>
+      <li><%= stars_for_rating(review.stars) %></li>
       <li class="review-content"><%= review.review_content %></li>
       <li class="reviewer-name"><%= review.user.first_name %> <%= review.user.last_name %></li>
     <% end %>

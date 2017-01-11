@@ -315,8 +315,8 @@ a:hover {
 }
 
 .event-tile {
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding-top: 30px;
+  padding-bottom: 25px;
 }
 
 .event-tile a{
@@ -338,12 +338,19 @@ a:hover {
 
 .review-content {
   color: #9B9B9B;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .event-details h6 {
   text-align: right;
   min-width: 120px;
   margin-right: 20px;
+}
+
+.event-details .btn-success, .event-details .btn-primary {
+  margin-left: 140px;
+  margin-top: 10px;
 }
 
 .event-tile-details h6{
@@ -353,5 +360,28 @@ a:hover {
 }
 
 .whos-coming {
-  align-items: center;
+  margin-left: 140px;
+  margin-top: -30px;
+}
+
+.rating-star {
+  max-width: 16px;
+}
+
+.on-yelp {
+  font-style: italic;
+}
+
+.event-tile a{
+  position: absolute;
+    margin-top: -.9em;
+    margin-left: -3.5em;
+    background-color: white;
+    padding: 3px;
+}
+
+.details-button a .btn-success{
+  position: absolute;
+  margin-top: -.5em;
+  margin-left: 1em;
 }

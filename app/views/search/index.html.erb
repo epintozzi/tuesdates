@@ -25,7 +25,7 @@
       </div>
       <div class="col-md-4">
         <ul>
-          <li><%= restaurant.rating%> on Yelp</li>
+          <li class="on-yelp"><%= stars_for_rating(restaurant.rating) %> on Yelp</li>
           <% if Restaurant.count_past_events_at_restaurant(restaurant) > 0%>
             <li>
               <%= Restaurant.count_past_events_at_restaurant(restaurant)%> other Tuesdaters have eaten here

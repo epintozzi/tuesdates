@@ -1,7 +1,7 @@
 require "rails_helper"
 
 describe "events/:id" do
-  scenario "user sees individual event details" do
+  scenario "user sees individual event details", :vcr do
     user = create(:user)
     group = create(:group)
     group.users = [user]

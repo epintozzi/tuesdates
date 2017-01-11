@@ -30,9 +30,15 @@
     <div class="col-md-4">
     </div>
   </div>
-  <div class="row">
-    <% @events.each do |event| %>
-      <%= render partial: "shared/event_tile", locals: {event: event} %>
-    <% end %>
+
+  <div class="group-events">
+    <div class="container">
+      <h5>Events with this group</h5>
+    </div>
+    <div class="row">
+      <% @events.each do |event| %>
+        <%= render partial: "shared/event_tile", locals: {event: event} %>
+      <% end %>
+    </div>
   </div>
 </div>

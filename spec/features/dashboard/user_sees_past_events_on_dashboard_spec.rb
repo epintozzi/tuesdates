@@ -1,7 +1,7 @@
 require "rails_helper"
 
 describe "/dashboard" do
-  scenario "user sees past events on dashboard" do
+  scenario "user sees past events on dashboard", :vcr do
     user = create(:user)
     user_2 = create(:user)
     restaurant = create(:restaurant)

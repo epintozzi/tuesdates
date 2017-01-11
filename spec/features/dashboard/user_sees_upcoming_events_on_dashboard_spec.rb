@@ -1,7 +1,7 @@
 require "rails_helper"
 
 describe "/dashboard" do
-  scenario "user sees upcoming events on dashboard" do
+  scenario "user sees upcoming events on dashboard", :vcr do
     user = create(:user)
     group = create(:group)
     group.users = [user]

@@ -1,7 +1,7 @@
 require "rails_helper"
 
 describe "/events" do
-  scenario "user sees all their own events" do
+  scenario "user sees all their own events", :vcr do
     user = create(:user)
     group_1, group_2 = create_list(:group, 2)
     group_1.users = [user]

@@ -1,0 +1,5 @@
+<%= form_tag :search, method: :get, class: "form-inline" do %>
+  <%= text_field_tag :term, nil, placeholder: "search by restaurant or cuisine", class: "form-control search-left"%>
+  <%= text_field_tag :location, nil, placeholder: "city or zipcode", class: "form-control search-right"%>
+  <%= submit_tag "Search", class: "btn btn-success" %>
+<% end %>

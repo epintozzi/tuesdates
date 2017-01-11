@@ -353,6 +353,10 @@ a:hover {
   margin-top: 10px;
 }
 
+.event-details {
+  margin-top: 3%;
+}
+
 .event-tile-details h6{
  text-align: right;
  min-width: 80px;
@@ -384,4 +388,31 @@ a:hover {
   position: absolute;
   margin-top: -.5em;
   margin-left: 1em;
+}
+
+.search-left {
+  margin-right: -7px;
+  min-width: 20%;
+  max-width: 50%;
+  border-radius: 20px 0px 0px 20px;
+  border: 1px solid #D62C80;
+  border-right: 0px;
+}
+
+.search-right {
+  min-width: 20%;
+  max-width: 50%;
+  border-radius: 0px 20px 20px 0px;
+  border: 1px solid #D62C80;
+  border-left-color: #9B9B9B;
+}
+
+.dashboard-events {
+  margin-left: 15%;
+  margin-top: 3em;
+}
+
+.group-events {
+  padding-top: 3em;
+  margin-left: 8%
 }

@@ -17,9 +17,13 @@
       <div class="whos-coming">
         <li><h6>Who's Coming?</h6></li>
           <% @event.rsvps.each do |rsvp|%>
-            <li>
-              <%= rsvp.user.first_name %> <%= rsvp.user.last_name %> <%= rsvp.status %>
-            </li>
+            <% if rsvp.user.first_name.nil? %>
+              <li><%=rsvp.user.email%></li>
+            <% else %>
+              <li>
+                <%= rsvp.user.first_name %> <%= rsvp.user.last_name %> <%= rsvp.status %>
+              </li>
+            <% end %>
           <% end %>
       </div>
       <% if  @event.event_start.future? && @event.user == current_user%>

@@ -184,6 +184,11 @@ a:hover {
   border-radius: 48px;
   padding: 2px 12px;
 }
+
+.btn-success.create-event {
+  padding: 6px 12px;
+}
+
 .btn-primary{
   background-color: white;
   border: 2px solid #D62C80;
@@ -335,10 +340,16 @@ a:hover {
   color: #9B9B9B;
 }
 
-.event-details h6{
+.event-details h6 {
   text-align: right;
   min-width: 120px;
   margin-right: 20px;
+}
+
+.event-tile-details h6{
+ text-align: right;
+ min-width: 80px;
+ margin-right: 20px;
 }
 
 .whos-coming {

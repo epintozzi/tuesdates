@@ -23,19 +23,11 @@
       <div class="col-md-4">
         <ul>
           <li class="on-yelp"><%= stars_for_rating(restaurant.rating) %> on Yelp</li>
-          <% if Restaurant.count_past_events_at_restaurant(restaurant) > 0%>
-            <li>
-              <%= Restaurant.count_past_events_at_restaurant(restaurant)%> other Tuesdaters have eaten here
-            </li>
-          <% else %>
-            <li>Be the first Tuesdater to eat here</li>
-          <% end %>
           <li>
-            <% if !Restaurant.has_reviews?(restaurant)%>
-              <li>There are no reviews for this restaurant</li>
-            <% else %>
-              <%= link_to "See Reviews", restaurant_reviews_path(Restaurant.find_restaurant_from_yelp_response(restaurant)) %>
-            <% end %>
+            <%= number_of_tuesdaters_eaten_here(restaurant) %>
+          </li>
+          <li>
+            <%= restaurant_reviews(restaurant)%>
           </li>
         </ul>
       </div>

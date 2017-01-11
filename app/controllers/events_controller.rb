@@ -37,9 +37,20 @@ class EventsController < ApplicationController
   end
 
   def edit
+    @event = Event.find(params[:id])
+    @restaurant = @event.restaurant
   end
 
   def update
+    @event = Event.find(params[:id])
+    @restaurant = @event.restaurant
+    if @event.update(event_params)
+      flash[:success] = "Your event has been updated and new RSVPs will be sent to the group."
+      redirect_to event_path(@event)
+    else
+      flash[:failure] = "Your event did not update. Please try again."
+      render :edit
+    end
   end
 
   private

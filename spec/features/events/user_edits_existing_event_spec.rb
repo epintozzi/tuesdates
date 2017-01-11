@@ -9,7 +9,7 @@ describe "/event/:id/edit" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     visit event_path(event)
-    click_on "Edit"
+    click_link "Edit"
     find('input#datepicker', visible: false).set("2018-11-11 06:00 PM")
     click_on "Send Invitation"
 
@@ -36,7 +36,7 @@ describe "/event/:id/edit" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     visit event_path(event)
-    click_on "Edit"
+    click_link "Edit"
     find('input#datepicker', visible: false).set("2016-11-11 06:00 PM")
     click_on "Send Invitation"
 

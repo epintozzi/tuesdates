@@ -3,12 +3,7 @@
   </div>
   <div class="col-md-6 event-right">
     <div class="event-details">
-      <% if !@rsvp.nil? && @event.event_start.future? %>
-        <%= link_to edit_event_rsvp_path(@event, @rsvp) do%>
-          <button type="button" class="btn btn-success">RSVP</button>
-        <% end %>
-      <% end %>
-
+      <%= rsvp_button(@rsvp, @event) %>
       <li><h6>Group</h6><%= @event.group.name %></li>
       <li><h6>Organizer</h6><%= @event.user.first_name %> <%= @event.user.last_name %></li>
       <li><h6>Where</h6><%= @event.restaurant.name %>,
@@ -18,26 +13,12 @@
         <li><h6>Who's Coming?</h6></li>
         <div class="whos-coming">
           <% @event.rsvps.each do |rsvp|%>
-            <% if rsvp.user.first_name.nil? %>
-              <li><%=rsvp.user.email%></li>
-            <% else %>
-              <li>
-                <%= rsvp.user.first_name %> <%= rsvp.user.last_name %> <%= rsvp.status %>
-              </li>
-            <% end %>
+            <li><%=show_name_or_email(rsvp)%></li>
           <% end %>
       </div>
-      <% if  @event.event_start.future? && @event.user == current_user%>
-        <%= link_to edit_event_path(@event) do%>
-        <button type="button" class="btn btn-primary">Edit</button>
-        <% end %>
-      <% end %>
+      <%= event_edit_button(@event)%>
       <br>
-      <% if @event.event_start.past? %>
-        <%= link_to new_restaurant_review_path(@event.restaurant) do%>
-          <button type="button" class="btn btn-primary">Leave a review</button>
-        <% end %>
-      <% end %>
+      <%= leave_review_button(@event) %>
     </div>
   </div>
 </div>

@@ -18,7 +18,11 @@
       </div>
       <%= event_edit_button(@event)%>
       <br>
-      <%= leave_review_button(@event) %>
+      <% if @event.event_start.past? %>
+        <%= link_to new_restaurant_review_path(@event.restaurant) do %>
+          <%= button_tag "Leave a review", {type: "button", class: "btn btn-primary"} %>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>

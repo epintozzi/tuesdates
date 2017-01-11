@@ -12,6 +12,7 @@ class GroupsController < ApplicationController
 
   def show
     @group_member = GroupMember.new
+    @events = @group.events.order(event_start: :asc)
   end
 
   def new

@@ -8,7 +8,11 @@
       <div class="group-members">
         <h4> Group Members </h4>
           <% @group.users.each do |member| %>
-            <li><%= member.first_name %> <%= member.last_name %></li>
+            <% if member.first_name.nil? %>
+              <li><%= member.email %></li>
+            <% else %>
+              <li><%= member.first_name %> <%= member.last_name %></li>
+            <% end %>
           <% end %><br>
           <%= link_to "Leave group", group_group_member_path(@group), method: "delete" %>
       </div>
@@ -27,7 +31,7 @@
     </div>
   </div>
   <div class="row">
-    <% @group.events.each do |event| %>
+    <% @events.each do |event| %>
       <%= render partial: "shared/event_tile", locals: {event: event} %>
     <% end %>
   </div>

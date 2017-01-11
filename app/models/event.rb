@@ -14,7 +14,7 @@ class Event < ApplicationRecord
 
   def send_rsvps
     group_members.each do |member|
-      Rsvp.create(user: member.user, event: self)
+      Rsvp.create(user: member.user, event: self) if !member.user.nil?
     end
   end
 end

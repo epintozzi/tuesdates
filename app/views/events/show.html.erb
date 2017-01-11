@@ -14,12 +14,16 @@
       <%= @event.restaurant.street %>,
       <%= @event.restaurant.city %>, <%= @event.restaurant.state %> <%= @event.restaurant.zip %></li>
       <li><h6>When</h6><%= format_datetime(@event.event_start) %></li>
-      <div class="whos-coming">
         <li><h6>Who's Coming?</h6></li>
+        <div class="whos-coming">
           <% @event.rsvps.each do |rsvp|%>
-            <li>
-              <%= rsvp.user.first_name %> <%= rsvp.user.last_name %> <%= rsvp.status %>
-            </li>
+            <% if rsvp.user.first_name.nil? %>
+              <li><%=rsvp.user.email%></li>
+            <% else %>
+              <li>
+                <%= rsvp.user.first_name %> <%= rsvp.user.last_name %> <%= rsvp.status %>
+              </li>
+            <% end %>
           <% end %>
       </div>
       <% if  @event.event_start.future? && @event.user == current_user%>
@@ -44,7 +48,7 @@
     <p><%= "There are no reviews for this restaurant." %></p>
   <% else %>
     <% @event.restaurant.reviews.each do |review| %>
-      <li class="review-stars"><%= review.stars %> Stars</li>
+      <%= stars_for_rating(review.stars) %>
       <li class="review-content"><%= review.review_content %></li>
       <li class="reviewer-name"><%= review.user.first_name %> <%= review.user.last_name %></li>
     <% end %>

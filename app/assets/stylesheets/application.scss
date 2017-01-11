@@ -416,3 +416,48 @@ a:hover {
   padding-top: 3em;
   margin-left: 8%
 }
+
+.form-label {
+  display: block;
+  font-family: 'Lato', sans-serif;
+  color: #9B9B9B;
+  font-weight: 400;
+  text-align: center;
+}
+
+.address-block p {
+  text-align: center;
+}
+
+.restaurant-field {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  color: #5C6065;
+  border: none;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 100px;
+}
+
+.new_event {
+  max-width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.group-picker {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  color: #5C6065;
+  margin-bottom: 2em;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 100px;
+}
+
+.event-btn{
+  margin-left: 40%;
+  margin-top: 3em;
+}

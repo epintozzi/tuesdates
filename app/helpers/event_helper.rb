@@ -1,6 +1,6 @@
 module EventHelper
 
-  def show_name_or_email(rsvp)
+  def show_name_or_email_rsvp(rsvp)
     if rsvp.user.first_name.nil?
       "#{rsvp.user.email} - #{rsvp.status}"
     else

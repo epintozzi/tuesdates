@@ -8,11 +8,7 @@
       <div class="group-members">
         <h4> Group Members </h4>
           <% @group.users.each do |member| %>
-            <% if member.first_name.nil? %>
-              <li><%= member.email %></li>
-            <% else %>
-              <li><%= member.first_name %> <%= member.last_name %></li>
-            <% end %>
+            <li><%= show_name_or_email_group(member) %><li>
           <% end %><br>
           <%= link_to "Leave group", group_group_member_path(@group), method: "delete" %>
       </div>

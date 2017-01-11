@@ -2,11 +2,8 @@
 <div class="search-header">
   <div class="form-group search-form">
     <h3 id="search-text">Enter search terms to see your results</h3>
-    <%= form_tag :search, method: :get, class: "form-inline" do %>
-      <%= text_field_tag :term, nil, placeholder: "search by restaurant or cuisine", class: "form-control"%>
-      <%= text_field_tag :location, nil, placeholder: "city or zipcode", class: "form-control"%>
-      <%= submit_tag "Search", class: "btn btn-success" %>
-    <% end %>
+    <%= render partial: 'form' %>
+
   </div>
 </div>
 

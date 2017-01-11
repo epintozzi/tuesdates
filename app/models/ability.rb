@@ -8,6 +8,7 @@ class Ability
       can [:show, :edit, :update], Group, group_members: {user_id: user.id}
       can [:edit, :update], Event, user_id: user.id
       can :show, Event, group_members: {user_id: user.id}
+      can :show, Event, rsvps: {user_id: user.id}
       can [:edit, :update], Rsvp, user_id: user.id
       can :create, GroupMember, group: {group_members: {user_id: user.id}}
       can :destroy, GroupMember, user_id: user.id

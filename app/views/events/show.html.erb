@@ -36,9 +36,7 @@
     <p><%= "There are no reviews for this restaurant." %></p>
   <% else %>
     <% @event.restaurant.reviews.each do |review| %>
-      <%= stars_for_rating(review.stars) %>
-      <li class="review-content"><%= review.review_content %></li>
-      <li class="reviewer-name"><%= review.user.first_name %> <%= review.user.last_name %></li>
+      <%= render partial: 'shared/reviews', locals: {review: review} %>
     <% end %>
   <% end %>
 </div>

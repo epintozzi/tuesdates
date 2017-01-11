@@ -1,6 +1,6 @@
 <%= form_for ([@group, @group_member]), html: {class: "form-inline"} do |f| %>
   <%= fields_for :user, @group_member.user do |u|%>
-      <%= u.text_field :email, required: true, class: 'form-control' %>
+      <%= u.text_field :email, placeholder: :email, required: true, class: 'form-control invite-form-field' %>
   <% end %>
-  <%= f.submit "Invite", class: "btn-primary" %>
+  <%= f.submit "Invite", class: "btn-primary invite-button" %>
 <% end %>

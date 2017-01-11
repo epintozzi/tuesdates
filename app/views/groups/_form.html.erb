@@ -1,6 +1,6 @@
-<%= form_for @group do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+<%= form_for @group, html: {class: "form-horizontal"} do |f| %>
+  <%= f.label :name, class:'form-label' %>
+  <%= f.text_field :name, class: 'form-control invite-form-field' %>
 
-  <%= f.submit %>
+  <%= f.submit class: 'btn btn-success create-group-button' %>
 <% end %>

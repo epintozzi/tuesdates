@@ -10,10 +10,10 @@
       <%= @event.restaurant.street %>,
       <%= @event.restaurant.city %>, <%= @event.restaurant.state %> <%= @event.restaurant.zip %></li>
       <li><h6>When</h6><%= format_datetime(@event) %></li>
-        <li><h6>Who's Coming?</h6></li>
+      <li><h6>Who's Coming?</h6></li>
         <div class="whos-coming">
           <% @event.rsvps.each do |rsvp|%>
-            <li><%=show_name_or_email(rsvp)%></li>
+            <li><%=show_name_or_email_rsvp(rsvp)%></li>
           <% end %>
       </div>
       <%= event_edit_button(@event)%>

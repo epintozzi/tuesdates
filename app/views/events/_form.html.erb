@@ -1,15 +1,23 @@
 <%= form_for @event do |f| %>
-  <%= fields_for :restaurant, @event.restaurant do |r| %>
-    <%= r.hidden_field :yelp_id %>
-    <%= r.text_field :name, value: @restaurant.name, readonly: true%>
-  <% end %>
+  <div class="restaurant-block">
+    <%= fields_for :restaurant, @event.restaurant do |r| %>
+      <%= r.hidden_field :yelp_id %>
+      <%= r.label "Restaurant", class:"form-label" %>
+      <%= r.text_field :name, value: @restaurant.name, readonly: true, class:"restaurant-field"%>
+    <% end %>
+  </div>
   <br>
-  <%= @restaurant.street%><br>
-  <%= @restaurant.city%>, <%= @restaurant.state%> <%= @restaurant.zip%><br>
+  <div class="address-block">
+    <p class="form-label">Address</p>
+    <p><%= @restaurant.street%><br>
+    <%= @restaurant.city%>, <%= @restaurant.state%> <%= @restaurant.zip%></p><br>
+  </div>
 
+  <div class="group-picker">
+    <%= f.collection_select(:group_id, current_user.groups, :id, :name, {prompt: "Choose a group to invite"}) %>
+  </div>
   <%= f.hidden_field :event_start, "data-provide" => 'datepicker', id: 'datepicker' %>
 
-  <%= f.collection_select(:group_id, current_user.groups, :id, :name, {prompt: "Choose a group to invite"}) %>
 
-    <%= f.submit "Send Invitation", class: 'btn-success' %>
+  <%= f.submit "Send Invitation", class: 'btn-success event-btn' %>
   <% end %>

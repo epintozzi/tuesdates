@@ -4,12 +4,14 @@
   <div class="col-md-6 event-right">
     <div class="event-details">
       <%= rsvp_button(@rsvp, @event) %>
+      <% cache("#{@event.id}-#{@event.updated_at}") do %>
       <li><h6>Group</h6><%= @event.group.name %></li>
       <li><h6>Organizer</h6><%= @event.user.first_name %> <%= @event.user.last_name %></li>
       <li><h6>Where</h6><%= @event.restaurant.name %>,
       <%= @event.restaurant.street %>,
       <%= @event.restaurant.city %>, <%= @event.restaurant.state %> <%= @event.restaurant.zip %></li>
       <li><h6>When</h6><%= format_datetime(@event) %></li>
+      <% end %>
       <li><h6>Who's Coming?</h6></li>
         <div class="whos-coming">
           <% @event.rsvps.each do |rsvp|%>

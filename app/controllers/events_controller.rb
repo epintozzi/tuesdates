@@ -11,6 +11,7 @@ class EventsController < ApplicationController
   end
 
   def show
+    @event = Event.includes(:group, restaurant: [:reviews], rsvps: [:user]).find(params[:id])
     @rsvp = Rsvp.find_by(user: current_user, event: @event)
   end
 

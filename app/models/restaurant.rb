@@ -12,9 +12,15 @@ class Restaurant < ApplicationRecord
     YelpService.business_search(self.yelp_id).business
   end
 
-  def timezone
+  def load_timezone
     yelp_business = self.yelp_object
-    Timezone.lookup(yelp_business.location.coordinate.latitude, yelp_business.location.coordinate.longitude)
+    tz = Timezone.lookup(yelp_business.location.coordinate.latitude, yelp_business.location.coordinate.longitude)
+    self.timezone_name = tz.name
+  end
+
+  def timezone
+    self.load_timezone if timezone_name.nil?
+    Timezone.fetch(self.timezone_name)
   end
 
   def self.find_restaurant_from_yelp_response(restaurant)

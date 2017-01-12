@@ -1,3 +1,4 @@
+<% cache(event.id.to_s + "-" + event.updated_at.to_s) do %>
 <div class="col-md-3 event-tile">
   <li><%= link_to event.group.name, group_path(event.group) %></li>
   <div class="event-tile-details">
@@ -15,3 +16,4 @@
     </div>
   </li>
 </div>
+<% end %>

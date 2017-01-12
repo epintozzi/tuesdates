@@ -7,3 +7,14 @@ unless Rails.env.production?
     end
   end
 end
+
+# Cache lat/long for each IP address
+module Geocoder
+  module Request
+    def location
+      @location ||= Rails.cache.fetch(geocoder_spoofable_ip, expire:24.hours) do
+        Geocoder.search(geocoder_spoofable_ip, ip_address: true).first
+      end
+    end
+  end
+end

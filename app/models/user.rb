@@ -9,7 +9,7 @@ class User < ApplicationRecord
   validates_uniqueness_of :email
 
   def self.from_omniauth(auth_hash)
-    user = find_or_create_by(email: auth_hash['info']['email'])
+    user = where("lower(email) = ?", auth_hash['info']['email'].downcase).first_or_create(email: auth_hash['info']['email'])
     user.provider = auth_hash['provider']
     user.uid = auth_hash['uid']
     user.first_name = auth_hash['info']['first_name']
